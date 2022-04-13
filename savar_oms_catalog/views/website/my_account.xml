@@ -1,0 +1,32 @@
+<odoo>
+    <data>
+
+        <template id="portal_my_details_inherit" inherit_id="portal.portal_my_details" name="SH Website Client">
+            
+            <xpath expr="//form/div/div/div[1]/div[last()]" position="after">
+                <div class="form-group  col-xl-6">
+
+                    <label class="col-form-label label-optional" for="merchant_catalog_owner"><i class="fa fa-user-circle"></i><span> Merchant</span></label>                    
+                    <label class="switch">
+                        <input type="checkbox" name="merchant_catalog_owner" id="merchant_catalog_owner_01" class="form-control " t-attf-class="form-control #{error.get('merchant_catalog_owner') and 'is-invalid' or ''}" t-att-value="merchant_catalog_owner or partner.merchant_catalog_owner"/>
+                        <span class="slider round"></span>
+                    </label>
+                    <input type="hidden" id="partner_id" t-att-value="id or partner.id"/>
+                </div>
+
+                <script type="text/javascript" src="/savar_oms_catalog/static/src/js/frontend_partner_profile.js"></script>
+
+            </xpath>
+
+        </template>
+
+        <function model="ir.model.fields" name="formbuilder_whitelist">
+            <value>res.partner</value>
+            <value eval="[
+                            'merchant_catalog_owner'
+                         ]"/>
+        </function>
+
+
+    </data>
+</odoo>

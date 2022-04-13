@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+
+       <!--POR PESO-->
+        <record id="by_weight_form_view" model="ir.ui.view">
+            <field name="name">by.weight.form</field>
+            <field name="model">by.weight</field>
+            <field name="arch" type="xml">
+                <form class="oe_form_configuration">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="description"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <record id="by_weight_tree_view" model="ir.ui.view">
+            <field name="name">by.weight.tree</field>
+            <field name="model">by.weight</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" />
+                    <field name="description" />
+                </tree>
+            </field>
+        </record>
+        <record id="by_weight_action" model="ir.actions.act_window">
+            <field name="name">Peso</field>
+            <field name="res_model">by.weight</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+    </data>
+</odoo>

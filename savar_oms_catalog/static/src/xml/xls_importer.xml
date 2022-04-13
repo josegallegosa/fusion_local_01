@@ -1,0 +1,139 @@
+<templates id="template" xml:space="preserve">
+
+	<t t-extend="ListView.buttons" >
+        <t t-jquery="button.o_list_button_add" t-operation="after">
+           <button type="button" class="btn btn-secondary xls_importer">
+                <i class="fa fa-file-excel-o"></i>
+           </button>
+
+        </t>
+    </t>
+
+    <t t-name="xls_importer">
+        <div id="accordion" class="buttons-container">
+            <div>    
+                <h3>Importador</h3>            
+                <form action="/orders/massive_save_fsm" method="post" class="s_website_form form-horizontal container-fluid mt32" enctype="multipart/form-data" id="massive_save">
+                    <div t-attf-class="form-group">
+                        <div class="col-md-7 col-sm-8">
+                            <p>
+                                Seleccionar un archivo excel para importar ordenes de trabajo.
+                            </p>
+                            <input type="hidden" name="csrf_token" t-att-value="csrf_token"/>   
+                            <input type="hidden" name="url_redirection" t-att-value="url_redirection"/>   
+                            <input accept="xls, .xlsx" class="o_input_file file btn btn-primary" type="file" name="attachment"/>
+                            <div id="upload_massive_orders" class="btn btn-primary" style="display:none;">
+                                <i class="fa fa-file" title="Importación de Ordenes de Trabajo"/>
+                                <span>Importar Pedidos</span>
+                            </div>
+                            <div class="form-button">
+                                <input value="Iniciar"  type="submit" name="submit" id="massive_save_button" class="hidden btn btn-primary" style="margin-top: 10px;"/>
+                            </div>
+                        </div>
+                    </div> 
+                </form>
+            </div>
+            <div class="xlsx-exporter">
+                <h3>Exportador</h3>            
+                <form action="/orders/massive_export_xls_fsm" method="post" class="s_website_form form-horizontal container-fluid mt32 " id="massive_export_xls">
+                
+                    <div t-attf-class="form-group board-xlsx-templates"></div>
+                    <div t-attf-class="diplayer-control-fields btn btn-warning"><i class="fa fa-cogs"></i></div>
+                    <div t-attf-class="form-group board-xlsx-templates-fields important-hidden">                        
+
+                        <div class="col-6">                           
+                            <input type="checkbox" name="code_merchant" />
+                            <label for="code_merchant">Cod. Orden de trabajo</label>
+                        </div>
+
+                        <div class="col-6">                           
+                            <input type="checkbox" name="scheduled_date_start" />
+                            <label for="scheduled_date_start">Fecha Inicio Despacho</label>
+                        </div>
+
+                        <div class="col-6">                         
+                            <input type="checkbox" name="partner_account" />
+                            <label for="partner_account">Cuenta</label>
+                        </div>
+
+                        <div class="col-6">                        
+                            <input type="checkbox" name="partner_channel" />
+                            <label for="partner_channel">Canal</label>
+                        </div>
+
+                        <div class="col-6">                        
+                            <input type="checkbox" name="partner_channel_street" />
+                            <label for="partner_channel_street">Canal Calle</label>
+                        </div>
+
+                        <div class="col-6">                        
+                            <input type="checkbox" name="partner_channel_district" />
+                            <label for="partner_channel_district">Canal Districto</label>
+                        </div>
+
+                        <div class="col-6">                        
+                            <input type="checkbox" name="partner_channel_mobile" />
+                            <label for="partner_channel_mobile">Canal Movíl</label>
+                        </div>
+
+                        <div class="col-6">                        
+                            <input type="checkbox" name="service_id" />
+                            <label for="service_id">Servicio</label>
+                        </div>
+
+                        <div class="col-6">                        
+                            <input type="checkbox" name="subservice_id" />
+                            <label for="subservice_id">Subservicio</label>
+                        </div>
+
+                        <div class="col-6">                        
+                            <input type="checkbox" name="location_id" />
+                            <label for="location_id">Ubicación</label>
+                        </div>
+
+                        <div class="col-6">                        
+                            <input type="checkbox" name="consigned_id" />
+                            <label for="consigned_id">Contacto Primario</label>
+                        </div>
+
+                        <div class="col-6">                        
+                            <input type="checkbox" name="move_ids" />
+                            <label for="move_ids">Lineas SKUs</label>
+                        </div>
+
+                        <div class="col-6">
+                            <input type="checkbox" name="package_lump_ids" />
+                            <label for="package_lump_ids">Bultos</label>                        
+                        </div>
+
+                        <div class="form-button">
+                            <input value="Guardar" type="submit" name="submit" id="export_xls_button" class="hidden btn btn-primary" style="margin-top: 10px;"/>
+                            <input value="Guardar Descargar" type="submit" name="submit" id="export_xls_button_downlaod" class="hidden btn btn-primary" style="margin-top: 10px;"/>
+                        </div>
+
+                        <input type="hidden" name="csrf_token" t-att-value="csrf_token"/>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </t>
+
+    <t t-name="xls_templates_buttons">
+        <t t-foreach="xlsx_templates" t-as="template">
+            <t>
+                <t>
+                    <t t-set="link" t-value="template.xlsx_file"/>
+                    <div t-att-href="link" class="btn btn-info btn-downloadxlsx" t-att-id="template.id" t-att-binary="template.xlsx_file">
+                        <div>
+                            <b><t t-esc="template.name"/></b>
+                        </div>
+                        <div class="text-left">
+                            <small><t t-esc="template.service_id[1]"/></small>
+                        </div>                        
+                    </div>                    
+                </t>
+            </t>
+        </t>
+    </t>
+
+</templates>

@@ -1,0 +1,18 @@
+<odoo>
+
+        <template id="portal_merchant_orders" name="Pedidos Mercantiles" inherit_id="portal.portal_my_home" customize_show="True" priority="33">
+
+            <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+
+                <t t-call="portal.portal_docs_entry">
+                  <t t-set="title">Pedidos Mercantiles</t>                  
+                  <t t-set="count" t-value="request.env['sale.order'].sudo().get_merchant_orders_count()"/>
+                  <t t-set="url" t-value="'/my/merchant_orders'"/>
+                  <t t-set="placeholder_count" t-value="'count'"/>
+                </t>
+
+            </xpath>
+
+        </template>
+
+</odoo>

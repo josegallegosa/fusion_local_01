@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<!-- BACK OFFICE -->
+
+<odoo>
+    <data noupdate="1">
+
+        <record forcecreate="True" id="back_office_1" model="back.office">    
+            <field name="name">General</field>
+        </record> 
+        <record forcecreate="True" id="back_office_2" model="back.office">    
+            <field name="name">Dedicado</field>
+        </record> 
+        <record forcecreate="True" id="back_office_3" model="back.office">    
+            <field name="name">No aplica</field>
+        </record> 
+
+    </data>
+</odoo>

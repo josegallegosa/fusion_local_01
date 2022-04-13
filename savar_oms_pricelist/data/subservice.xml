@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<!-- SUBSERVICIOS -->
+
+<odoo>
+    <data noupdate="1">
+
+        <record forcecreate="True" id="subservice_1" model="fsm.order.service">    
+            <field name="name">Regular</field>
+            <field name="parent_id" ref="service_1"/>
+        </record>
+        <record forcecreate="True" id="subservice_2" model="fsm.order.service">    
+            <field name="name">Next Day</field>
+            <field name="parent_id" ref="service_1"/>
+        </record>
+        <record forcecreate="True" id="subservice_3" model="fsm.order.service">    
+            <field name="name">Same Day</field>
+            <field name="parent_id" ref="service_1"/>
+        </record>
+        <record forcecreate="True" id="subservice_4" model="fsm.order.service">    
+            <field name="name">Express</field>
+            <field name="parent_id" ref="service_1"/>
+        </record>
+        <record forcecreate="True" id="subservice_5" model="fsm.order.service">    
+            <field name="name">Armado Fulfillment</field>
+            <field name="parent_id" ref="service_1"/>
+        </record>
+        <record forcecreate="True" id="subservice_6" model="fsm.order.service">    
+            <field name="name">Aereo</field>
+            <field name="parent_id" ref="service_1"/>
+        </record>
+
+
+        <record forcecreate="True" id="subservice_7" model="fsm.order.service">    
+            <field name="name">Next Day</field>
+            <field name="parent_id" ref="service_2"/>
+        </record>
+        <record forcecreate="True" id="subservice_8" model="fsm.order.service">    
+            <field name="name">Express</field>
+            <field name="parent_id" ref="service_2"/>
+        </record>
+        <record forcecreate="True" id="subservice_9" model="fsm.order.service">    
+            <field name="name">Aereo</field>
+            <field name="parent_id" ref="service_2"/>
+        </record>
+
+
+        <record forcecreate="True" id="subservice_10" model="fsm.order.service">    
+            <field name="name">Next Day</field>
+            <field name="parent_id" ref="service_3"/>
+        </record>
+        <record forcecreate="True" id="subservice_11" model="fsm.order.service">    
+            <field name="name">Same Day</field>
+            <field name="parent_id" ref="service_3"/>
+        </record>
+        <record forcecreate="True" id="subservice_12" model="fsm.order.service">    
+            <field name="name">Express</field>
+            <field name="parent_id" ref="service_3"/>
+        </record>
+        <record forcecreate="True" id="subservice_13" model="fsm.order.service">    
+            <field name="name">Armado Fulfillment</field>
+            <field name="parent_id" ref="service_3"/>
+        </record>
+        <record forcecreate="True" id="subservice_14" model="fsm.order.service">    
+            <field name="name">Aereo</field>
+            <field name="parent_id" ref="service_3"/>
+        </record>
+
+
+        <record forcecreate="True" id="subservice_15" model="fsm.order.service">    
+            <field name="name">Regular</field>
+            <field name="parent_id" ref="service_4"/>
+        </record>
+        <record forcecreate="True" id="subservice_16" model="fsm.order.service">    
+            <field name="name">Aereo</field>
+            <field name="parent_id" ref="service_4"/>
+        </record>
+
+    </data>
+</odoo>

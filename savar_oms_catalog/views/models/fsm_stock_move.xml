@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="oms_catalog_fsm_view_move_form_inherit" model="ir.ui.view">
+            <field name="name">stock.move.form.inherit</field>
+            <field name="model">stock.move</field>
+            <field name="inherit_id" ref="stock.view_move_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group[@name='main_grp_col2']" position="after">
+                    <notebook>
+                        <page string="Pedido de Trabajo" name="fsm_order">
+                            <group>
+                                <h3>Pedido</h3>
+                                <field name="fsm_order_id"/>
+                            </group>
+                            <group>
+                                <h3>Medida</h3>
+                                <field name="product_uom"/>
+                            </group>
+                            <group>
+                                <h3>Tarifa</h3>
+                                <field name="price_list" readonly="1"/>
+                                <field name="price_list_line" readonly="1"/>
+                            </group>                        
+                        </page>
+                    </notebook>  
+                </xpath> 
+            </field>
+        </record>        
+
+</odoo>

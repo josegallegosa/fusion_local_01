@@ -1,0 +1,16 @@
+<odoo>
+
+        <template id="portal_report_fsm_order" name="Mi Informe Orden de Trabajo" inherit_id="portal.portal_my_home" customize_show="True" priority="35">
+
+            <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+
+                <t t-call="portal.portal_docs_entry">
+                  <t t-set="title">Informe Orden de Trabajo</t>
+                  <t t-set="url" t-value="'/merchant/informe/fsm_order'"/>
+                </t>
+
+            </xpath>
+
+        </template>        
+
+</odoo>

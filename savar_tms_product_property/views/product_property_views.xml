@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="product_property_form_view" model="ir.ui.view">
+            <field name="name">product.property.form</field>
+            <field name="model">product.property</field>
+            <field name="arch" type="xml">
+                <form class="oe_form_configuration">
+                    <sheet>
+                        <field name="image_1920" widget="image" class="oe_avatar oe_right"/>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                        </div>
+                        <group name="first" col="2">
+                            <field name="parent_id" class="oe_inline" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="product_property_tree_view" model="ir.ui.view">
+            <field name="name">product.property.tree</field>
+            <field name="model">product.property</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="complete_name" />
+                    <field name="image_128" widget="image" class="oe_avatar oe_right"/>
+                    <field name="parent_id" />
+                </tree>
+            </field>
+        </record>
+        <record id="product_property_action" model="ir.actions.act_window">
+            <field name="name">Propiedades de productos</field>
+            <field name="res_model">product.property</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>

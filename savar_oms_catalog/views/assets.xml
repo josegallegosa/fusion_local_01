@@ -1,0 +1,20 @@
+<odoo>
+    <data>
+        <template id="assets_front_end" inherit_id="website.assets_frontend">
+            <xpath expr="." position="inside">
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.js"></script>
+                <link rel="stylesheet" href="/savar_oms_catalog/static/src/css/portal.css"/>
+                <script type="text/javascript" src="/savar_oms_catalog/static/src/js/account/frontend_partner_signup.js"></script>
+                <script type="text/javascript" src="/savar_oms_catalog/static/src/js/web_editor/mobile.js"></script>
+                <script type="text/javascript" src="/savar_oms_catalog/static/src/js/web_editor/web_editor.js"></script>
+                <script type="text/javascript" src="/savar_oms_catalog/static/src/js/product_template/product_template.js"></script>
+                <script type="text/javascript" src="/savar_oms_catalog/static/src/js/product_template/product_categories.js"></script>
+                <script type="text/javascript" src="/savar_oms_catalog/static/src/js/product_template/product_taxes.js"></script>
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
+                <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.js"></script>
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css"/>
+            </xpath>
+        </template>
+    </data>
+</odoo>

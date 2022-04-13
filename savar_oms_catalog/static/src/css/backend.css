@@ -1,0 +1,42 @@
+div[name='stage_id'] button
+{
+  cursor: pointer;
+}
+button#action_complete, button#action_cancel
+{
+  display: none;
+}
+#massive_export_xls input[type=checkbox]
+{
+  width: 18px;
+  height: 18px;
+}
+form#massive_export_xls div.form-group div.col-6
+{
+  float: left;
+}
+form .form-button
+{
+  clear: both;
+}
+.btn-downloadxlsx
+{
+  margin-bottom: 4px;
+}
+.text-left
+{
+  text-align: left!important;
+}
+.board-xlsx-templates-fields
+{
+  margin-top: 15px;
+  background: aliceblue;
+}
+.diplayer-control-fields
+{
+  background: aquamarine!important;
+}
+.important-hidden
+{
+  display: none!important;
+}

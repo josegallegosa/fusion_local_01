@@ -1,0 +1,111 @@
+<odoo>
+
+    <template id="portal_merchant_orders_new_webpage">
+        <title>Pedidos</title>
+        <t t-call="website.layout">
+          <div class="oe_structure"/>
+          <div class="oe_structure">
+              <div class="container">
+                  <form id="new_sale_order">
+                        
+                        
+                        <div class="row row_top">
+                            <t t-set="sequence" t-value="request.env['ir.sequence'].get_merchant_sequence('sale.order.merchant')"/>
+                            <h1><input type="text" name="order_name" class="form-control input-as-primary-label" readonly="1"  t-att-value="sequence"/></h1>
+                        </div>
+                        <div class="row row_top">
+                            <label>Cliente</label>
+                            <input type="text" name="order_partner" id="order_partner" class="form-control"/>
+                        </div>
+                        <div class="row row_top">
+                            <label>Dirección Facturación</label>
+                            <input type="text" name="order_partner_invoice_address" id="order_partner_invoice_address" class="form-control"/>
+                        </div>
+                        <div class="row row_top">
+                            <label>Dirección Entrega</label>
+                            <input type="text" name="order_partner_delivery_address" id="order_partner_delivery_address" class="form-control"/>
+                        </div>                
+
+                   <div class="order_lines row">
+                        <table class="table_order_lines">
+                            <tr class="table_order_lines_heading">
+                                <th><label>Producto</label></th>
+                                <th><label>Descripción</label></th>
+                                <th><label>Cantidad</label></th>
+                                <th><label>Precio</label></th>
+                                <th><label>Impuesto</label></th>
+                                <th><label>Subservicio</label></th>
+                                <th><label>Total</label></th>
+                                <th><label/></th>
+                            </tr>
+                            <tr class="order_line">
+                                <td><input type="text" name="line_product" class="form-control line_product"/></td>
+                                <td><input type="text" name="line_description" readonly="1" class="form-control line_description"/></td>
+                                <td><input type="number" min="0" step="1" pattern="[0-9]{10}" name="line_quantity" class="form-control line_quantity"/></td>
+                                <td><input type="number" step="any" name="line_price" class="form-control line_price"/></td>
+                                <td><input type="text" name="line_tax" class="form-control line_tax"/></td>                             
+                                <td><input type="text" name="line_subservice" class="form-control line_subservice"/></td>   
+                                <td><input type="text" step="any" name="line_total" readonly="1" class="form-control line_total"/></td>
+                                <td><div class="action_remove_line"><i class="fa fa-trash"/></div></td>
+                            </tr>
+                            
+                        </table>
+                        <table class="table_order_lines_001">
+                            <tr>
+                                <td colspan="5" class="table_order_total_01"><label>Total</label></td>
+                                <td colspan="2" class="table_order_total_02"><label class="table_order_total">0.0</label></td>
+                            </tr>                            
+                        </table>
+                        <div class="tr_action_add_line row">
+                            <div colspan="7">
+                                <a href="#" class="go_back_order btn btn-dark" mode="create" ><i class="fa fa-undo"></i>Atras</a>
+                                <a href="#" class="add_form_line btn btn-secondary"><i class="fa fa-plus-square"></i>Agregar linea</a>
+                                <a href="#" class="save_order btn btn-primary" mode="create" ><i class="fa fa-save"></i>Guardar Pedido</a>
+                            </div>
+                        </div>
+                   </div>
+                   
+                   <div class="default_order_line">
+                        <table class="default_order_line_table">
+                            <tr  class="order_line">
+                                <td><input type="text" name="line_product" class="form-control line_product"/></td>
+                                <td><input type="text" name="line_description" readonly="1" class="form-control line_description"/></td>
+                                <td><input type="number" min="0" step="1" pattern="[0-9]{10}" name="line_quantity" class="form-control line_quantity"/></td>
+                                <td><input type="number" step="any" name="line_price" class="form-control line_price"/></td>
+                                <td><input type="text" name="line_tax" class="form-control line_tax"/></td>
+                                <td><input type="text" name="line_subservice" class="form-control line_subservice"/></td>   
+                                <td><input type="text" step="any" name="line_total" readonly="1" class="form-control line_total"/></td>
+                                <td><div class="action_remove_line"><i class="fa fa-trash"/></div></td>
+                            </tr>
+                        </table>
+                   </div>
+                   
+                  </form>
+                    <div class="oe_structure"/>
+                  <div>
+                    <table class="table price_list_applied">
+                        <tr>
+                            <th colspan="3" style="text-align: center;">
+                                <b>Tareas Aplicadas</b>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                Tarifa
+                            </th>
+                            <th>
+                                Subservicio
+                            </th>
+                            <th>
+                                Monto
+                            </th>
+                        </tr>
+                    </table>
+                  </div>
+              </div>
+          </div>
+          <div class="oe_structure"/>
+        </t>
+    </template>
+
+</odoo>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+ 
+<!--TIPO DE PAGO-->
+ 
+<odoo>
+ <data noupdate="1">
+ 
+ <record forcecreate="True" id="shipping_type_1" model="shipping.type"> 
+ <field name="name">Terrestre</field>
+ </record> 
+ <record forcecreate="True" id="shipping_type_2" model="shipping.type"> 
+ <field name="name">Marítimo</field>
+ </record> 
+ <record forcecreate="True" id="shipping_type_3" model="shipping.type"> 
+ <field name="name">Aéreo</field>
+ </record> 
+ 
+ </data>
+</odoo>

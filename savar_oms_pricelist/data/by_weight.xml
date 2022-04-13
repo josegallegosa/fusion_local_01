@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<!-- POR PESO -->
+
+<odoo>
+    <data noupdate="1">
+
+        <record forcecreate="True" id="byWeight_1" model="by.weight">    
+            <field name="name">Peso fijo</field>
+        </record> 
+        <record forcecreate="True" id="byWeight_2" model="by.weight">    
+            <field name="name">Kg adicional</field>
+        </record> 
+        <record forcecreate="True" id="byWeight_3" model="by.weight">    
+            <field name="name">No aplica</field>
+        </record> 
+
+    </data>
+</odoo>

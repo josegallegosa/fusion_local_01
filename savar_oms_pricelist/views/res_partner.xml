@@ -1,0 +1,15 @@
+<odoo>
+    <data>
+        <record id="view_oms_pricelist_partners_form" model="ir.ui.view">
+            <field name="name">oms.pricelist.view.res.partner.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="priority">1000</field>
+            <field name="arch" type="xml">
+                <field name="type" position="after">
+                  <field name="is_operator"/>                 
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>

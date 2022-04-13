@@ -1,0 +1,72 @@
+body {
+  font-family: "Calibri" !important;
+  font-size: 1.3rem;
+}
+
+html .o_web_client .o_main_navbar {
+  background: linear-gradient(to right, rgb(109, 109, 109), rgb(0, 50, 93));
+}
+
+.o_base_settings .o_setting_container .settings_tab {
+  background: linear-gradient(to top, rgb(0, 50, 93), rgb(109, 109, 109));
+}
+
+.simplebar-mask {
+  background: linear-gradient(to top, rgb(0, 50, 93), rgb(109, 109, 109));
+  border-right: 1px black solid;
+}
+
+.o_form_view .o_form_label {
+  font-size: 1.3rem;
+  color: #0f4f91;
+}
+
+.text-muted {
+  color: #575b60 !important;
+}
+
+.dropdown-menu {
+  background: #333;
+}
+
+.o_base_settings .o_setting_container .settings_tab .tab {
+  color: #fff;
+  font-size: 16px;
+}
+
+.btn {
+  font-size: 1.3rem;
+}
+
+.btn-fill-primary,
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+[type="text"],
+[type="password"],
+[type="number"],
+textarea,
+select {
+  font-size: 18px;
+}
+
+.dropdown-item {
+  color: #fff;
+}
+
+.show .dropdown-menu .dropdown-header {
+  color: #8598ff;
+  font-size: 18px;
+}
+
+.breadcrumb-item.active,
+.title {
+  color: #0f4f91 !important;
+  font-size: 28px !important;
+  font-weight: normal;
+}
+.o_dropdown_menu .o_menu_item > .dropdown-item {
+  color: #929292;
+}

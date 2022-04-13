@@ -1,0 +1,16 @@
+<odoo>
+    <menuitem
+        id="menu_business_reports"
+        name="Reporte de Orden de Trabajo"
+        action="action_business_reports"
+        parent="fieldservice.reporting"
+        sequence="50"
+    />
+    <menuitem
+        id="menu_business_reports_history"
+        name="Historial de Reportes de Ordenes de Trabajo"
+        action="action_business_reports_history"
+        parent="fieldservice.reporting"
+        sequence="51"
+    />
+</odoo>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<!--PACKING-->
+
+<odoo>
+    <data noupdate="1">
+
+        <record forcecreate="True" id="packing_1" model="packing">    
+            <field name="name">Embalaje simple</field>
+        </record>
+        <record forcecreate="True" id="packing_2" model="packing">    
+            <field name="name">Embalaje personalizado</field>
+        </record> 
+        <record forcecreate="True" id="packing_3" model="packing">    
+            <field name="name">No aplica</field>
+        </record>  
+
+    </data>
+</odoo>

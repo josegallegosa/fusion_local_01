@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <menuitem id="fsm_order_service_menu_act" name="Services" parent="fieldservice.menu_fsm_config_order" action="fsm_order_service_action" sequence="2"/>
+    <record id="res_city_action" model="ir.actions.act_window">
+        <field name="name">Provincias</field>
+        <field name="res_model">res.city</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem id="res_city_menu" 
+            name="Provincias" 
+            action="res_city_action" 
+            parent="contacts.menu_localisation"
+            sequence="2"/>
+    <record id="res_country_state_pe_action" model="ir.actions.act_window">
+        <field name="name">Departamentos</field>
+        <field name="res_model">res.country.state</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem id="contacts.menu_country_state_partner"
+            name="Departamentos"
+            action="res_country_state_pe_action"
+            parent="contacts.menu_localisation"
+            sequence="3"/>
+    <record id="l10n_pe_res_city_district_action" model="ir.actions.act_window">
+        <field name="name">Distritos</field>
+        <field name="res_model">l10n_pe.res.city.district</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem id="l10n_pe_district_menu"
+            name="Distritos"
+            action="l10n_pe_res_city_district_action"
+            parent="contacts.menu_localisation"
+            sequence="4"/>
+    <!-- res.zone.type action window -->
+    <record id="res_zone_type_action" model="ir.actions.act_window">
+        <field name="name">Tipos de zona</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.zone.type</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem id="res_zone_type_menu"
+            name="Tipo de zona"
+            action="res_zone_type_action"
+            parent="contacts.menu_localisation"
+            sequence="5"/>
+</odoo>

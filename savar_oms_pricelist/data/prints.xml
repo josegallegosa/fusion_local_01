@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<!-- IMPRESIONES -->
+
+<odoo>
+    <data noupdate="1">
+
+        <record forcecreate="True" id="prints_1" model="prints">    
+            <field name="name">Estándar</field>
+        </record> 
+        <record forcecreate="True" id="prints_2" model="prints">    
+            <field name="name">Especiales</field>
+        </record> 
+        <record forcecreate="True" id="prints_3" model="prints">    
+            <field name="name">No aplica</field>
+        </record> 
+
+    </data>
+</odoo>

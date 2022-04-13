@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+
+        <!--SUBSERVICIO-->
+        <record id="fsm_order_service_form_view" model="ir.ui.view">
+            <field name="name">fsm.order.service.form</field>
+            <field name="model">fsm.order.service</field>
+            <field name="arch" type="xml">
+                <form class="oe_form_configuration">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="description"/>
+                            <field name="parent_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <record id="fsm_order_service_view" model="ir.ui.view">
+            <field name="name">fsm.order.service.tree</field>
+            <field name="model">fsm.order.service</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" />
+                    <field name="description"/>
+                    <field name="parent_id" />
+                </tree>
+            </field>
+        </record>
+        <record id="fsm_order_service_action" model="ir.actions.act_window">
+            <field name="name">Subservicios</field>
+            <field name="res_model">fsm.order.service</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('parent_id','!=', False)]</field> 
+        </record>
+        
+    </data>
+</odoo>

@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <template id="product_template_extra_fields" inherit_id="website_sale.product">
+        <xpath expr="//div[@id='product_details']" position="inside">
+          <table class="table_product_template_extra_fields">
+            <tr>
+              <td><label class="attribute_name">Stock</label></td>
+              <td><input type="number" class="form-control input-as-label" name="product_stock" id="product_stock" readonly="1" t-att-value="product.virtual_available"/></td>
+            </tr>
+            <tr>
+              <td><label class="attribute_name">Costo</label></td>
+              <td><input type="text" t-att-value="product.standard_price" name="standard_price" class="form-control input-as-label" readonly="1"/></td>
+            </tr>
+            <tr>
+              <td><label class="attribute_name">Referencia Interna</label></td>
+              <td><input type="text" t-att-value="product.default_code" name="default_code" class="form-control input-as-label" readonly="1"/></td>
+            </tr>
+            <tr>
+              <td><label class="attribute_name">Código de barras</label></td>
+              <td><input type="text" t-att-value="product.barcode" name="barcode" class="form-control input-as-label" readonly="1"/></td>
+            </tr>
+            <tr>
+              <td><label class="attribute_name">Descripción</label></td>
+              <td>
+              <textarea name="public_description" class="form-control input-as-label" widget="html" readonly="1">
+                <t t-esc="product.public_description"/>
+              </textarea>
+              </td>
+            </tr>
+            <tr>
+              <td>
+              <label class="attribute_name">Subservicio</label>
+              <span class="hide-required svc_product_id"><t t-esc="product.id"/></span>
+              </td>
+              <td>                
+                <input type="text" name="product_subservice" class="form-control product_subservice" readonly="1"/>
+              </td>
+            </tr>
+          </table>
+        </xpath>        
+    </template>
+</odoo>

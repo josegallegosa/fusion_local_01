@@ -1,0 +1,19 @@
+<odoo>
+    
+    <template id="sale_order_portal_template_merchant_edit_order" name="Sales Order Portal Template Merchant Order Edition" inherit_id="portal.portal_sidebar">
+
+        <xpath expr="//div[hasclass('o_portal_sidebar')]" position="inside">
+            <input type="hidden" id="order_id" t-att-value="sale_order.id"/>
+            <input type="hidden" id="edition_mode" value="order"/>
+        </xpath>
+
+         <xpath expr="//div[hasclass('o_portal_sidebar')]" position="inside">
+            <div class="order_portal_edit">                
+                <t t-call="savar_oms_catalog.portal_merchant_orders_edit_webpage">
+                </t>
+            </div>
+        </xpath>
+
+    </template>
+
+</odoo>

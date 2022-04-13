@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <template id="product_taxes" inherit_id="sale.variants">
+        <xpath expr="//ul" position="after">
+            <li>
+                <strong class="attribute_name">Impuestos</strong>
+                <select
+                        t-attf-class="form-control">
+                    <t t-foreach="product.taxes_id" t-as="ptax">
+                        <option t-att-value="ptax.name" t-att-data-value_id="ptax.id">
+                            <span t-field="ptax.name"/>
+                        </option>
+                    </t>
+                </select>
+            </li>
+        </xpath>
+    </template>
+</odoo>

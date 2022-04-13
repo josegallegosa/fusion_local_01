@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <!-- l10n_pe.res.city.district tree view -->
+    <record id="l10n_pe_res_city_district_view_tree" model="ir.ui.view">
+        <field name="name">l10n_pe.res.city.district.view.tree</field>
+        <field name="model">l10n_pe.res.city.district</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="country_id"/>
+                <field name="state_id"/>
+                <field name="city_id"/>
+                <field name="name"/>
+                <field name="zone_type_id"/>
+            </tree>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<odoo>
+    <data>
+
+       <!--POR SEGURO-->
+        <record id="by_sure_form_view" model="ir.ui.view">
+            <field name="name">by.sure.form</field>
+            <field name="model">by.sure</field>
+            <field name="arch" type="xml">
+                <form class="oe_form_configuration">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="description"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <record id="by_sure_tree_view" model="ir.ui.view">
+            <field name="name">by.sure.tree</field>
+            <field name="model">by.sure</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" />
+                    <field name="description" />
+                </tree>
+            </field>
+        </record>
+        <record id="by_sure_action" model="ir.actions.act_window">
+            <field name="name">Seguro</field>
+            <field name="res_model">by.sure</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+    </data>
+</odoo>

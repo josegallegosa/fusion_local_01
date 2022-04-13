@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<!-- PICKING -->
+
+<odoo>
+    <data noupdate="1">
+    
+        <record forcecreate="True" id="picking_1" model="picking">    
+            <field name="name">Tipo de producto</field>
+        </record> 
+        <record forcecreate="True" id="picking_2" model="picking">    
+            <field name="name">Items max</field>
+        </record> 
+        <record forcecreate="True" id="picking_3" model="picking">    
+            <field name="name">Item adicional</field>
+        </record> 
+        <record forcecreate="True" id="picking_4" model="picking">    
+            <field name="name">No aplica</field>
+        </record> 
+
+    </data>
+</odoo>

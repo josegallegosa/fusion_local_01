@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data noupdate="0">
+    	<record model='ir.ui.view' id='view_fsm_location_tree'>
+    	    <field name='name'>fsm.location.tree.inherit</field>
+    	    <field name='model'>fsm.location</field>
+    	    <field name='inherit_id' ref="fieldservice.fsm_location_tree_view"/>
+    	    <field name='arch' type='xml'>
+	    	    <field name="city" position="replace">
+	    	    	<field name="distrito_id"/>    
+	    	    </field>
+				<xpath expr="//field[@name='state_id']" position="before">
+					<field name="province_id"/>
+				</xpath>
+				<xpath expr="//field[@name='state_id']" position="attributes">
+                    <attribute name="string">Departamento</attribute>
+                </xpath>
+				<field name="zip" position="replace">
+	    	    	<field name="description"/>    
+	    	    </field>
+	    	</field>
+    	</record>
+		
+		<record model="ir.ui.view" id="view_fsm_location_form">
+			<field name="name">fsm.location.inherit.view.form</field>
+			<field name="model">fsm.location</field>
+			<field name="inherit_id" ref="fieldservice.fsm_location_form_view"/>
+			<field name="arch" type="xml">
+				<field name="city" position="after">
+	    	    	<field name="distrito_id" placeholder='Distrito' domain="[('country_id', '=', country_id),('state_id', '=', state_id),('province_id', '=', province_id)]" />    
+	    	    </field>
+				<xpath expr="//field[@name='city']" position="attributes">
+					<attribute name="invisible">1</attribute>
+				</xpath>
+				<xpath expr="//field[@name='state_id']" position="before">
+					<field name="province_id" placeholder='Provincia' domain="[('country_id', '=', country_id),('state_id', '=', state_id),('province_id', '=', False)]"/>
+				</xpath>
+				<xpath expr="//field[@name='state_id']" position="attributes">
+                    <attribute name="string">Departamento</attribute>
+					<attribute name="placeholder">Departamento</attribute>
+					<attribute name="domain">[('country_id', '=', country_id),('state_id', '=', False),('province_id', '=', False)]</attribute>
+                </xpath>	
+				<xpath expr="//field[@name='owner_id']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+				<xpath expr="//field[@name='fsm_parent_id']" position="attributes">
+                    <attribute name="domain">[('distrito_id', '!=', False)]</attribute>
+                </xpath>			
+			</field>
+		</record>
+		
+    </data>
+</odoo>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- tree view -->
+        <record id="view_sale_orders_massive_tree" model="ir.ui.view">
+            <field name="name">sale_orders_massive_tree</field>
+            <field name="model">sale.orders.massive</field>
+            <field name="type">tree</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <tree string="Pedidos masivos">
+                    <field name="name" />
+                    <field name="file_name" />
+                </tree>
+            </field>
+        </record>
+        <!-- form view -->
+        <record id="view_view_sale_orders_massive_form" model="ir.ui.view">
+            <field name="name">view_sale_orders_massive_form</field>
+            <field name="model">sale.orders.massive</field>            
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form string="Pedido Masivo">
+                    <header>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only" string="Nombre"/>
+                            <h1><field name="name"/></h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="file_name" />
+                                <field name="file_binary" />
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- action window -->
+        <record id="action_sale_orders_massive" model="ir.actions.act_window">
+            <field name="name">Pedido Importado</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sale.orders.massive</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{"search_default_fieldname":1}</field>
+        </record>
+
+        <menuitem id="menu_sale_orders_massive" name="Pedidos Importados" parent="savar_oms_pricelist.sub_settings_menuitem" action="action_sale_orders_massive" sequence="0"/>
+    </data>
+</odoo>

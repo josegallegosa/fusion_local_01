@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!--SERVICIOS-->
+        <record forcecreate="True" id="service_1" model="fsm.order.service">
+            <field name="name">General</field>
+        </record>
+        <record forcecreate="True" id="service_2" model="fsm.order.service">
+            <field name="name">Last Mile</field>
+        </record>
+        <record forcecreate="True" id="service_3" model="fsm.order.service">
+            <field name="name">FulFillment</field>
+        </record>
+        <record forcecreate="True" id="service_4" model="fsm.order.service">
+            <field name="name">Consolidado</field>
+        </record>
+       
+        <!--SUBSERVICIOS-->
+        <record forcecreate="True" id="subservice_1" model="fsm.order.service">    
+            <field name="name">Regular</field>
+            <field name="parent_id" ref="service_1"/>
+        </record>
+        <record forcecreate="True" id="subservice_2" model="fsm.order.service">    
+            <field name="name">Next Day</field>
+            <field name="parent_id" ref="service_1"/>
+        </record>
+        <record forcecreate="True" id="subservice_3" model="fsm.order.service">    
+            <field name="name">Same Day</field>
+            <field name="parent_id" ref="service_1"/>
+        </record>
+        <record forcecreate="True" id="subservice_4" model="fsm.order.service">    
+            <field name="name">Express</field>
+            <field name="parent_id" ref="service_1"/>
+        </record>
+        <record forcecreate="True" id="subservice_5" model="fsm.order.service">    
+            <field name="name">Armado Fulfillment</field>
+            <field name="parent_id" ref="service_1"/>
+        </record>
+        <record forcecreate="True" id="subservice_6" model="fsm.order.service">    
+            <field name="name">Aereo</field>
+            <field name="parent_id" ref="service_1"/>
+        </record>
+
+
+        <record forcecreate="True" id="subservice_7" model="fsm.order.service">    
+            <field name="name">Next Day</field>
+            <field name="parent_id" ref="service_2"/>
+        </record>
+        <record forcecreate="True" id="subservice_8" model="fsm.order.service">    
+            <field name="name">Express</field>
+            <field name="parent_id" ref="service_2"/>
+        </record>
+        <record forcecreate="True" id="subservice_9" model="fsm.order.service">    
+            <field name="name">Aereo</field>
+            <field name="parent_id" ref="service_2"/>
+        </record>
+
+
+        <record forcecreate="True" id="subservice_10" model="fsm.order.service">    
+            <field name="name">Next Day</field>
+            <field name="parent_id" ref="service_3"/>
+        </record>
+        <record forcecreate="True" id="subservice_11" model="fsm.order.service">    
+            <field name="name">Same Day</field>
+            <field name="parent_id" ref="service_3"/>
+        </record>
+        <record forcecreate="True" id="subservice_12" model="fsm.order.service">    
+            <field name="name">Express</field>
+            <field name="parent_id" ref="service_3"/>
+        </record>
+        <record forcecreate="True" id="subservice_13" model="fsm.order.service">    
+            <field name="name">Armado Fulfillment</field>
+            <field name="parent_id" ref="service_3"/>
+        </record>
+        <record forcecreate="True" id="subservice_14" model="fsm.order.service">    
+            <field name="name">Aereo</field>
+            <field name="parent_id" ref="service_3"/>
+        </record>
+
+
+        <record forcecreate="True" id="subservice_15" model="fsm.order.service">    
+            <field name="name">Regular</field>
+            <field name="parent_id" ref="service_4"/>
+        </record>
+        <record forcecreate="True" id="subservice_16" model="fsm.order.service">    
+            <field name="name">Aereo</field>
+            <field name="parent_id" ref="service_4"/>
+        </record>
+        
+        <!--UBIGEO-->
+        <record forcecreate="True" id="ubigeo_1" model="ubigeo">    
+            <field name="name">Urbano</field>
+        </record>
+        <record forcecreate="True" id="ubigeo_2" model="ubigeo">    
+            <field name="name">Interurbano</field>
+        </record>
+        <record forcecreate="True" id="ubigeo_3" model="ubigeo">    
+            <field name="name">Alejado</field>
+        </record>
+        <record forcecreate="True" id="ubigeo_4" model="ubigeo">    
+            <field name="name">Provincia muy fácil</field>
+        </record>
+        <record forcecreate="True" id="ubigeo_5" model="ubigeo">    
+            <field name="name">Provincia fácil</field>
+        </record>
+        <record forcecreate="True" id="ubigeo_6" model="ubigeo">    
+            <field name="name">Provincia difícil</field>
+        </record>
+        <record forcecreate="True" id="ubigeo_7" model="ubigeo">    
+            <field name="name">Provincia muy difícil</field>
+        </record>
+
+        <!--ALMACENAJE-->
+        <record forcecreate="True" id="storage_1" model="storage">    
+            <field name="name">Por ítem</field>
+        </record>
+        <record forcecreate="True" id="storage_2" model="storage">    
+            <field name="name">Por caja</field>
+        </record>    
+        <record forcecreate="True" id="storage_3" model="storage">    
+            <field name="name">Por pallet</field>
+        </record>    
+        <record forcecreate="True" id="storage_4" model="storage">    
+            <field name="name">No aplica</field>
+        </record>    
+
+        <!--ETIQUETADO PRODUCTOS-->
+        <record forcecreate="True" id="labelingPro_1" model="labeling.product">    
+            <field name="name">Unidad (hasta 500)</field>
+        </record>   
+        <record forcecreate="True" id="labelingPro_2" model="labeling.product">    
+            <field name="name">Unidad (hasta 1000)</field>
+        </record> 
+        <record forcecreate="True" id="labelingPro_3" model="labeling.product">    
+            <field name="name">No aplica</field>
+        </record> 
+
+
+        <!--ETIQUETADO PAQUETES-->
+        <record forcecreate="True" id="labelingPack_1" model="labeling.package">    
+            <field name="name">1 bulto</field>
+        </record> 
+        <record forcecreate="True" id="labelingPack_2" model="labeling.package">    
+            <field name="name">Bulto</field>
+        </record> 
+        <record forcecreate="True" id="labelingPack_3" model="labeling.package">    
+            <field name="name">No aplica</field>
+        </record> 
+
+        <!--POR PESO-->
+        <record forcecreate="True" id="byWeight_1" model="by.weight">    
+            <field name="name">Peso fijo</field>
+        </record> 
+        <record forcecreate="True" id="byWeight_2" model="by.weight">    
+            <field name="name">Kg adicional</field>
+        </record> 
+        <record forcecreate="True" id="byWeight_3" model="by.weight">    
+            <field name="name">No aplica</field>
+        </record> 
+
+        <!--POR TALLA-->
+        <record forcecreate="True" id="product_size_1" model="product.size">
+            <field name="name">XS</field>
+        </record>
+        <record forcecreate="True" id="product_size_2" model="product.size">
+            <field name="name">S</field>
+        </record>
+        <record forcecreate="True" id="product_size_3" model="product.size">
+            <field name="name">M</field>
+        </record>
+        <record forcecreate="True" id="product_size_4" model="product.size">
+            <field name="name">L</field>
+        </record>
+        <record forcecreate="True" id="product_size_5" model="product.size">
+            <field name="name">XL</field>
+        </record>
+
+        <!--POR BULTOS-->
+        <record forcecreate="True" id="byPackage_1" model="by.package">    
+            <field name="name">Monto fijo</field>
+        </record> 
+        <record forcecreate="True" id="byPackage_2" model="by.package">    
+            <field name="name">Bulto adicional</field>
+        </record> 
+        <record forcecreate="True" id="byPackage_3" model="by.package">    
+            <field name="name">No aplica</field>
+        </record> 
+
+        <!--TIPO DE PAGO-->
+        <record forcecreate="True" id="pyment_type_1" model="payment.type">    
+            <field name="name">Prepago</field>
+        </record> 
+        <record forcecreate="True" id="pyment_type_2" model="payment.type">    
+            <field name="name">COD (cash on delivery)</field>
+        </record> 
+
+        <!--PICKING-->
+        <record forcecreate="True" id="picking_1" model="picking">    
+            <field name="name">Tipo de producto</field>
+        </record> 
+        <record forcecreate="True" id="picking_2" model="picking">    
+            <field name="name">Items max</field>
+        </record> 
+        <record forcecreate="True" id="picking_3" model="picking">    
+            <field name="name">Item adicional</field>
+        </record> 
+        <record forcecreate="True" id="picking_4" model="picking">    
+            <field name="name">No aplica</field>
+        </record> 
+
+        <!--PACKING-->
+        <record forcecreate="True" id="packing_1" model="packing">    
+            <field name="name">Embalaje simple</field>
+        </record>
+        <record forcecreate="True" id="packing_2" model="packing">    
+            <field name="name">Embalaje personalizado</field>
+        </record> 
+        <record forcecreate="True" id="packing_3" model="packing">    
+            <field name="name">No aplica</field>
+        </record>  
+
+        <!--POR RECOJO-->
+        <record forcecreate="True" id="by_pick_up_1" model="by.pick.up">    
+            <field name="name">Urbano</field>
+        </record>  
+        <record forcecreate="True" id="by_pick_up_2" model="by.pick.up">    
+            <field name="name">Interurbano</field>
+        </record>  
+        <record forcecreate="True" id="by_pick_up_3" model="by.pick.up">    
+            <field name="name">Alejado</field>
+        </record>  
+        <record forcecreate="True" id="by_pick_up_4" model="by.pick.up">    
+            <field name="name">No aplica</field>
+        </record>  
+
+        <!--POR SEGURO-->
+        <record forcecreate="True" id="by_sure_1" model="by.sure">    
+            <field name="name">% del monto del paquete</field>
+        </record>  
+        <record forcecreate="True" id="by_sure_2" model="by.sure">    
+            <field name="name">Cargo fijo</field>
+        </record> 
+        <record forcecreate="True" id="by_sure_3" model="by.sure">    
+            <field name="name">No aplica</field>
+        </record> 
+
+        <!--BACK OFFICE-->
+        <record forcecreate="True" id="back_office_1" model="back.office">    
+            <field name="name">General</field>
+        </record> 
+        <record forcecreate="True" id="back_office_2" model="back.office">    
+            <field name="name">Dedicado</field>
+        </record> 
+        <record forcecreate="True" id="back_office_3" model="back.office">    
+            <field name="name">No aplica</field>
+        </record> 
+
+        <!--IMPRESIONES-->
+        <record forcecreate="True" id="prints_1" model="prints">    
+            <field name="name">Estándar</field>
+        </record> 
+        <record forcecreate="True" id="prints_2" model="prints">    
+            <field name="name">Especiales</field>
+        </record> 
+        <record forcecreate="True" id="prints_3" model="prints">    
+            <field name="name">No aplica</field>
+        </record> 
+
+
+    </data>
+</odoo>

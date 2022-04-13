@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>        
+        <!--BG STOCK PICKING-->
+        <record id="oms_catalog_fsm_view_stock_picking_form_inherit" model="ir.ui.view">
+            <field name="name">stock.picking.form.inherit</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[last()]" position="after">
+                    <page string="Pedido de Trabajo" name="fsm_order"  attrs="{'invisible':[('fsm_order', '=', None)]}">
+                        <group>
+                            <field name="fsm_order"/>
+                        </group>                  
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="oms_catalog_fsm_view_stock_picking_form_attrs_inherit" model="ir.ui.view">
+            <field name="name">stock.picking.form.attrs.inherit</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//label[@for='partner_id']" position="replace">
+                    <label for="partner_id" attrs="{'invisible':[('fsm_order', '!=', None)]}"/>
+                </xpath>
+                <xpath expr="//label[@for='scheduled_date']" position="replace">
+                    <label for="scheduled_date" attrs="{'invisible':[('fsm_order', '!=', None)]}"/>
+                </xpath>
+                <xpath expr="//field[@name='partner_id']" position="replace">
+                    <field name="partner_id" attrs="{'invisible':[('fsm_order', '!=', None)]}"/>
+                </xpath>
+                <xpath expr="//field[@name='origin']" position="replace">
+                    <field name="origin" attrs="{'invisible':[('fsm_order', '!=', None)]}"/>
+                </xpath>
+                <xpath expr="//field[@name='scheduled_date']" position="replace">
+                    <field name="scheduled_date" attrs="{'invisible':[('fsm_order', '!=', None)]}"/>
+                </xpath>
+                <xpath expr="//field[@name='location_id']" position="replace">
+                    <field name="location_id" attrs="{'invisible':[('fsm_order', '!=', None)]}"/>
+                </xpath>
+                <xpath expr="//field[@name='picking_type_id']" position="replace">
+                    <field name="picking_type_id" attrs="{'invisible':[('fsm_order', '!=', None)]}"/>
+                </xpath>
+            </field>
+        </record>
+
+</odoo>

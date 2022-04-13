@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem id="product_template_property_inventory"
+                name="Propiedades de productos" action="product_property_action"
+                parent="stock.menu_stock_inventory_control" sequence="1" />
+    </data>
+</odoo>

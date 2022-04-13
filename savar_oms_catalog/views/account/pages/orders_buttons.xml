@@ -1,0 +1,23 @@
+<odoo>
+
+    <template id="portal_merchant_portal_orders_buttons" name="Pedidos Mercantiles Botones">
+        <t>
+            <div class="buttons-container">                
+                <form action="/orders/massive_save" method="post" class="s_website_form form-horizontal container-fluid mt32" enctype="multipart/form-data" id="massive_save">
+                    <div t-attf-class="form-group">
+                        <div class="col-md-7 col-sm-8">
+                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>   
+                            <input accept="xls, .xlsx" class="o_input_file file btn btn-primary" type="file" name="attachment"/>                            
+                            <div id="upload_massive_orders" class="btn btn-primary" style="display:none">
+                                <i class="fa fa-file"/>
+                                <span>Importar Pedidos</span>
+                            </div>
+                            <input type="submit" name="submit" id="massive_save_button" class="hidden"/>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            </t>     
+    </template>
+
+</odoo>

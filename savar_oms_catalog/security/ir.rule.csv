@@ -1,0 +1,3 @@
+"id","model_id/id","groups/id","name","domain_force","perm_read","perm_write","perm_create","perm_unlink"
+"product.product_comp_rule","product.model_product_template","savar_oms_catalog.group_merchant_account","Product multi-company"," ['|', ('company_id', 'in', company_ids), ('company_id', '=', False)]","True","True","True","True"
+"website_sale.product_template_public","product.model_product_template","savar_oms_catalog.group_merchant_account,base.group_portal,base.group_public","Public product template","[('website_published', '=', True), (""sale_ok"", ""="", True)]","True","","",""

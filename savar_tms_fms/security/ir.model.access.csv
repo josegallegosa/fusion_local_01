@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_fsm_order_service,access_fsm_order_service,model_fsm_order_service,,1,1,1,1
+access_res_zone_type,access_res_zone_type,model_res_zone_type,,1,1,1,1

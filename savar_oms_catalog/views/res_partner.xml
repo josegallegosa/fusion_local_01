@@ -1,0 +1,15 @@
+<odoo>
+    <data>
+        <record id="view_oms_catalog_partners_form" model="ir.ui.view">
+            <field name="name">oms.catalog.view.res.partner.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="priority">1000</field>
+            <field name="arch" type="xml">
+                <field name="create_date" position="after">
+                  <field name="merchant_catalog_owner"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>

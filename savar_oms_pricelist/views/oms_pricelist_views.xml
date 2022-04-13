@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="oms_pricelist_form_view" model="ir.ui.view">
+            <field name="name">oms.pricelist.form</field>
+            <field name="model">oms.pricelist</field>
+            <field name="arch" type="xml">
+                <form class="oe_form_configuration">
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                        </div>
+                        <group name="first" col="2">                            
+                            <field name="merchant_account"/>
+                            <field name="currency_id" class="oe_inline" string="Moneda" options="{'no_create': True, 'no_create_edit':True}" />
+                            <field name="service_id" class="oe_inline" domain="[('parent_id','=',False)]" string="Servicio" options="{'no_create': True, 'no_create_edit':True}"  />
+                            <field name="service_name" invisible='1'/>
+                            <field name="package_lump_amount" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                        </group>
+                        <notebook>
+                            <page string="Tarifas General" name="items" attrs="{'invisible': [('service_name', '!=','General')]}">
+                                <field name="pricelist_item1_ids">
+                                    <tree editable="bottom">
+                                        <field name="subservice_id" options="{'no_create': True, 'no_create_edit':True}" domain="[('parent_id.name','=',service_name)]"/>
+                                        <field name="ubigeo_id" options="{'no_create': True, 'no_create_edit':True}" />
+                                        <field name="storage_id" options="{'no_create': True, 'no_create_edit':True}" />
+                                        <field name="labeling_products_id" options="{'no_create': True, 'no_create_edit':True}" />
+                                        <field name="labeling_packages_id" options="{'no_create': True, 'no_create_edit':True}" />
+                                        <field name="by_weight_id" options="{'no_create': True, 'no_create_edit':True}" />
+                                        <field name="size_id" options="{'no_create': True, 'no_create_edit':True}"/>
+                                        <field name="by_package_id" options="{'no_create': True, 'no_create_edit':True}" />
+                                        <field name="payment_type_id" options="{'no_create': True, 'no_create_edit':True}" />
+                                        <field name="picking_id" options="{'no_create': True, 'no_create_edit':True}" />
+                                        <field name="packing_id" options="{'no_create': True, 'no_create_edit':True}" />
+                                        <field name="by_pick_up_id" options="{'no_create': True, 'no_create_edit':True}" />
+                                        <field name="by_sure_id" options="{'no_create': True, 'no_create_edit':True}" />
+                                        <field name="back_office_id" options="{'no_create': True, 'no_create_edit':True}" />
+                                        <field name="prints_id" options="{'no_create': True, 'no_create_edit':True}" />
+                                        <field name="service_name" options="{'no_create': True, 'no_create_edit':True}" invisible='1'/>
+                                        <field name="warehouse_id" options="{'no_create': True, 'no_create_edit':True}" />
+                                        <field name="district_id" options="{'no_create': True, 'no_create_edit':True}" />
+                                        <field name="sufix"/>
+                                        <field name="size_quant"/>
+                                        <field name="failed_recount"/>
+                                        <field name="failed_amount_charge"/>
+                                        <field name="price"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Tarifas Last Mile" name="items2" attrs="{'invisible': [('service_name', '!=','Last Mile')]}">
+                                <field name="pricelist_item2_ids">
+                                    <tree editable="bottom">
+                                        <field name="subservice_id" options="{'no_create': True, 'no_create_edit':True}" domain="[('parent_id.name','=',service_name)]"/>
+                                        <field name="ubigeo_id" options="{'no_create': True, 'no_create_edit':True}" />
+                                        <field name="by_weight_id" options="{'no_create': True, 'no_create_edit':True}" />
+                                        <field name="size_id" options="{'no_create': True, 'no_create_edit':True}"/>
+                                        <field name="labeling_packages_id" options="{'no_create': True, 'no_create_edit':True}" />
+                                        <field name="payment_type_id" options="{'no_create': True, 'no_create_edit':True}" />
+                                        <field name="by_pick_up_id" options="{'no_create': True, 'no_create_edit':True}" />
+                                        <field name="by_package_id" options="{'no_create': True, 'no_create_edit':True}" />
+                                        <field name="by_sure_id" options="{'no_create': True, 'no_create_edit':True}" />
+                                        <field name="back_office_id" options="{'no_create': True, 'no_create_edit':True}" />                                                              
+                                        <field name="service_name" options="{'no_create': True, 'no_create_edit':True}" invisible='1'/>
+                                        <field name="district_id" options="{'no_create': True, 'no_create_edit':True}" />
+                                        <field name="size_id" options="{'no_create': True, 'no_create_edit':True}"/>
+                                        <field name="size_quant"/>
+                                        <field name="failed_recount"/>
+                                        <field name="failed_amount_charge"/>
+                                        <field name="price"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Tarifas FulFillment" name="items" attrs="{'invisible': [('service_name', '!=','FulFillment')]}">
+                                <field name="pricelist_item3_ids">
+                                    <tree editable="bottom">
+                                        <field name="subservice_id" options="{'no_create': True, 'no_create_edit':True}" domain="[('parent_id.name','=',service_name)]"/>
+                                        <field name="ubigeo_id" options="{'no_create': True, 'no_create_edit':True}" />
+                                        <field name="storage_id" options="{'no_create': True, 'no_create_edit':True}" />
+                                        <field name="labeling_products_id" options="{'no_create': True, 'no_create_edit':True}" />
+                                        <field name="by_weight_id" options="{'no_create': True, 'no_create_edit':True}" />
+                                        <field name="size_id" options="{'no_create': True, 'no_create_edit':True}"/>
+                                        <field name="payment_type_id" options="{'no_create': True, 'no_create_edit':True}" />
+                                        <field name="picking_id" options="{'no_create': True, 'no_create_edit':True}" />
+                                        <field name="packing_id" options="{'no_create': True, 'no_create_edit':True}" />
+                                        <field name="by_pick_up_id" options="{'no_create': True, 'no_create_edit':True}" />
+                                        <field name="by_sure_id" options="{'no_create': True, 'no_create_edit':True}" />
+                                        <field name="back_office_id" options="{'no_create': True, 'no_create_edit':True}" />
+                                        <field name="prints_id" options="{'no_create': True, 'no_create_edit':True}" />
+                                        <field name="service_name" options="{'no_create': True, 'no_create_edit':True}" invisible='1'/>
+                                        <field name="warehouse_id" options="{'no_create': True, 'no_create_edit':True}" />
+                                        <field name="district_id" options="{'no_create': True, 'no_create_edit':True}" />
+                                        <field name="sufix"/>
+                                        <field name="size_quant"/>
+                                        <field name="failed_recount"/>
+                                        <field name="failed_amount_charge"/>
+                                        <field name="price"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Tarifas Consolidado" name="items" attrs="{'invisible': [('service_name', '!=','Consolidado')]}">
+                                <field name="pricelist_item4_ids">
+                                    <tree editable="bottom">
+                                        <field name="subservice_id" options="{'no_create': True, 'no_create_edit':True}" domain="[('parent_id.name','=',service_name)]"/>
+                                        <field name="ubigeo_id" options="{'no_create': True, 'no_create_edit':True}" />
+                                        <field name="by_weight_id" options="{'no_create': True, 'no_create_edit':True}" />
+                                        <field name="labeling_packages_id" options="{'no_create': True, 'no_create_edit':True}" />
+                                        <field name="size_id" options="{'no_create': True, 'no_create_edit':True}"/>
+                                        <field name="by_package_id" options="{'no_create': True, 'no_create_edit':True}" />
+                                        <field name="packing_id" options="{'no_create': True, 'no_create_edit':True}" />
+                                        <field name="by_pick_up_id" options="{'no_create': True, 'no_create_edit':True}" />
+                                        <field name="by_sure_id" options="{'no_create': True, 'no_create_edit':True}" />
+                                        <field name="back_office_id" options="{'no_create': True, 'no_create_edit':True}" />
+                                        <field name="prints_id" options="{'no_create': True, 'no_create_edit':True}" />
+                                        <field name="service_name" options="{'no_create': True, 'no_create_edit':True}" invisible='1'/>
+                                        <field name="warehouse_id" options="{'no_create': True, 'no_create_edit':True}" />
+                                        <field name="district_id" options="{'no_create': True, 'no_create_edit':True}" />
+                                        <field name="sufix"/>
+                                        <field name="size_quant"/>
+                                        <field name="failed_recount"/>
+                                        <field name="failed_amount_charge"/>
+                                        <field name="price"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="oms_pricelist_tree_view" model="ir.ui.view">
+            <field name="name">oms.pricelist.tree</field>
+            <field name="model">oms.pricelist</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="currency_id" />
+                </tree>
+            </field>
+        </record>
+        <record id="oms_pricelist_action" model="ir.actions.act_window">
+            <field name="name">Tarifas OMS</field>
+            <field name="res_model">oms.pricelist</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>

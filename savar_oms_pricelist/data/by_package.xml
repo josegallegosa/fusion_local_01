@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<!-- POR BULTOS -->
+
+<odoo>
+    <data noupdate="1">
+
+        <record forcecreate="True" id="byPackage_1" model="by.package">    
+            <field name="name">Monto fijo</field>
+        </record> 
+        <record forcecreate="True" id="byPackage_2" model="by.package">    
+            <field name="name">Bulto adicional</field>
+        </record> 
+        <record forcecreate="True" id="byPackage_3" model="by.package">    
+            <field name="name">No aplica</field>
+        </record> 
+
+    </data>
+</odoo>

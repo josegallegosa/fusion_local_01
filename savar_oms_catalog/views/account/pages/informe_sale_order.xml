@@ -1,0 +1,157 @@
+<odoo>
+
+    <template id="assets_frontend" inherit_id="website.assets_frontend">
+        <xpath expr="//link[last()]" position="after">
+            <link href="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table.min.css" rel="stylesheet"/>
+        </xpath>
+
+        <xpath expr="//script[last()]" position="after">
+          
+            
+            <!--<script type="text/javascript" src="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table.min.js"></script>
+            <script type="text/javascript" src="https://unpkg.com/bootstrap-table@1.19.1/dist/extensions/filter-control/bootstrap-table-filter-control.min.js"></script>-->
+            <!--<script type="text/javascript" src="/savar_oms_catalog/static/src/js/bootstrap-table.js"></script>
+            
+            <script type="text/javascript" src="/savar_oms_catalog/static/src/js/quotas_monthly.js"></script>-->
+            
+            
+            
+        </xpath>
+    </template>
+
+    <template id="portal_informe_sale_orders_webpage" name="Pedidos Mercantiles - Frontend">
+        
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Pedidos de Ventas                
+                </t>
+            </t>
+            <div class="row">
+                <div class="col-md-12"> 
+                    <div class="card ">
+                        <div class="card-body" style="min-height: 350px;">
+                            <h2 id="titulo_reporte">Reporte de Resultados Pedidos de Ventas</h2>
+                            <table                           
+                                id="table"
+                                data-toggle="table"
+                                data-height="460"
+                                data-show-columns="true"
+                                data-show-columns-search="true"
+                                data-show-pagination-switch="true"
+                                data-show-export="true"
+                                data-pagination="true"
+                                data-pagination-h-align="left"
+                                data-pagination-detail-h-align="right"
+                                data-show-footer="true"
+                                data-filter-control="true"
+                                data-show-search-clear-button="true"
+                                
+                                >
+                                <thead>
+                                    <th data-field="DATE_ORDER" data-filter-control="select">FECHA DE PEDIDO</th>
+                                    <th data-field="DEPARTAMENT" data-filter-control="select">DEPARTAMENTO</th>
+                                    <th data-field="DEFAULT_CODE" data-filter-control="select">COD. PRODUCTO</th>
+                                    <th data-field="CANT_PRODUCTOS" data-filter-control="select">CANT. PRODUCTOS</th>
+                                    <th data-field="AMOUNT_TAX" data-footer-formatter="sumFormatter">IMPUESTOS</th>
+                                    <th data-field="PRICE_SUBTOTAL" data-footer-formatter="sumFormatter">MONTO SUBTOTAL</th>
+                                    <th data-field="PRICE_TOTAL" data-footer-formatter="sumFormatter">MONTO TOTAL</th>
+                                </thead>
+                                <!--
+                                <tbody>
+                                    <tr>
+                                        <td>FO005</td>
+                                        <td>15426532</td>
+                                        <td>50</td>
+                                    </tr>
+                                    <tr>
+                                        <td>FO005</td>
+                                        <td>84751331</td>
+                                        <td>25</td>
+                                    </tr>
+                                    <tr>
+                                        <td>FO006</td>
+                                        <td>54351221</td>
+                                        <td>30</td>
+                                    </tr>
+                                    <tr>
+                                        <td>FO007</td>
+                                        <td>89561771</td>
+                                        <td>40</td>
+                                    </tr>
+                                    <tr>
+                                        <td>FO008</td>
+                                        <td>89561771</td>
+                                        <td>10</td>
+                                    </tr>
+                                </tbody>
+                                -->
+                                <tbody>
+                                    <tr t-foreach="tabledata2" t-as="line2">
+                                        <td> <t t-esc="line2['date_order']"/> </td>
+                                        <td> <t t-esc="line2['department']"/> </td>
+                                        <td> <t t-esc="line2['default_code']"/> </td>
+                                        <td> <t t-esc="line2['cant_productos']"/> </td>
+                                        <td> <t t-esc="line2['amount_tax']"/> </td>
+                                        <td> <t t-esc="line2['price_subtotal']"/> </td>
+                                        <td> <t t-esc="line2['price_total']"/> </td>
+                                    </tr>
+                                </tbody>
+                                
+                            </table>
+                            <style>
+                                .fixed-table-pagination{
+                                    padding-top:50px
+                                }
+                            </style>
+                            <script>
+                            /*
+                            var data = [{
+                            "name": "FO005",
+                            "code_merchant": "15426532",
+                            "service_amount": "50",
+                            }, {
+                            "name": "FO005",
+                            "code_merchant": "84751331",
+                            "service_amount": "25",
+                            }, {
+                            "name": "FO006",
+                            "code_merchant": "54351221",
+                            "service_amount": "30",
+                            }, {
+                            "name": "FO007",
+                            "code_merchant": "89561771",
+                            "service_amount": "40",
+                            }];
+
+                            
+                            $('#table').bootstrapTable({
+                            data: data,
+                            });
+                            */
+
+                            $('#table').bootstrapTable();
+
+
+                            function idFormatter() {
+                                return 'Total'
+                            }
+                            //$('#table').empty();
+                            function sumFormatter(data) {
+                                var field = this.field
+                                return data.map(function (row) {
+                                return +row[field]
+                                }).reduce(function (sum, i) {
+                                return sum + i
+                                }, 0)
+                            }
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+</odoo>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<!-- POR RECOJO -->
+
+<odoo>
+    <data noupdate="1">
+
+        <record forcecreate="True" id="by_pick_up_1" model="by.pick.up">    
+            <field name="name">Urbano</field>
+        </record>  
+        <record forcecreate="True" id="by_pick_up_2" model="by.pick.up">    
+            <field name="name">Interurbano</field>
+        </record>  
+        <record forcecreate="True" id="by_pick_up_3" model="by.pick.up">    
+            <field name="name">Alejado</field>
+        </record>  
+        <record forcecreate="True" id="by_pick_up_4" model="by.pick.up">    
+            <field name="name">No aplica</field>
+        </record>  
+
+    </data>
+</odoo>

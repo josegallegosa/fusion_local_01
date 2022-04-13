@@ -1,0 +1,40 @@
+<odoo>
+
+    <template id="portal_fsm_orders_webpage" name="Pedidos Mercantiles - Frontend">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Ordenes de Trabajo                
+                </t>
+            </t>
+
+            <t t-if="not quotations">
+                <input name="fsm_orders" id="fsm_orders" value="true" class="fsm_orders"/>
+                <t t-call="savar_oms_catalog.portal_merchant_portal_orders_buttons"></t>
+            </t>
+
+            <t t-if="not quotations">
+                <p>There are currently no quotations for your account.</p>
+            </t>            
+            
+            <t t-if="quotations" t-call="portal.portal_table">
+                <thead>
+                    <tr class="active">
+                        <th>Pedido # <input name="fsm_orders" id="fsm_orders" value="true" class="fsm_orders"/></th>
+                        <th>Servicio</th>
+                        <th>Subservicio</th>
+                    </tr>                    
+                </thead>
+                <t t-foreach="quotations" t-as="quotation">
+                    <tr>
+                        <td><t t-esc="quotation.name"/></td>
+                        <td><t t-esc="quotation.service_id.name"/></td>
+                        <td><t t-esc="quotation.subservice_id.name"/></td>
+                    </tr>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

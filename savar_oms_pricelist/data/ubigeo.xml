@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<!-- UBIGEO -->
+
+<odoo>
+    <data noupdate="1">
+        
+        <record forcecreate="True" id="ubigeo_1" model="ubigeo">    
+            <field name="name">Urbano</field>
+        </record>
+        <record forcecreate="True" id="ubigeo_2" model="ubigeo">    
+            <field name="name">Interurbano</field>
+        </record>
+        <record forcecreate="True" id="ubigeo_3" model="ubigeo">    
+            <field name="name">Alejado</field>
+        </record>
+        <record forcecreate="True" id="ubigeo_4" model="ubigeo">    
+            <field name="name">Provincia muy fácil</field>
+        </record>
+        <record forcecreate="True" id="ubigeo_5" model="ubigeo">    
+            <field name="name">Provincia fácil</field>
+        </record>
+        <record forcecreate="True" id="ubigeo_6" model="ubigeo">    
+            <field name="name">Provincia difícil</field>
+        </record>
+        <record forcecreate="True" id="ubigeo_7" model="ubigeo">    
+            <field name="name">Provincia muy difícil</field>
+        </record>
+
+    </data>
+</odoo>

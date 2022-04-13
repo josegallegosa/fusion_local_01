@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="fsm_order_form" model="ir.ui.view">
+        <field name="name">fsm.order.inherit.view.form</field>
+        <field name="model">fsm.order</field>
+        <field name="inherit_id" ref="fieldservice.fsm_order_form"/>
+        <field name="arch" type="xml">
+            
+            <xpath expr="//field[@name='type']" position="replace">
+                <field name="code_merchant"/>
+                <field name="service_id" domain="[('parent_id','=',False)]"/>
+                <field name="subservice_id" domain="[('parent_id','=',service_id)]"/>
+                <field name="shipping_type_id"/>
+                <field name="movement_type"/>
+                <field name="by_package_id"/>
+                <field name="payment_type_id"/>
+
+            </xpath>
+            <xpath expr="//field[@name='tag_ids']" position="after">
+                <field name="date_dispatch" invisible='1'/>
+            </xpath>            
+            <xpath expr="/form/sheet/group"  position="after">
+                <group id="appointment_time" colspan="2" col="2">
+                    <separator string="Hora de Cita" colspan="2"/>
+                    <div>
+                        <span class="oe_inline"> (  </span>
+                        <span class="oe_inline"> Desde : </span>
+                        <field name="appointment_time_from" nolabel="1" class="oe_inline"/>
+                        <span class="oe_inline"> Hasta:  </span>
+                        <field name="appointment_time_until" nolabel="1" class="oe_inline"/>
+                        <span>) </span>
+                    </div>
+                </group>
+            </xpath>
+            <xpath expr="//field[@name='company_id']" position="after">
+                <field name="operator_type_id"/>
+                <field name="service_amount"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

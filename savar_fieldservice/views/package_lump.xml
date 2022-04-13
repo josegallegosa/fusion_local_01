@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- tree view -->
+        <record id="view_package_lump_tree" model="ir.ui.view">
+            <field name="name">package_lump_tree</field>
+            <field name="model">package.lump</field>
+            <field name="type">tree</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <tree string="Bultos">
+                    <field name="name"/>
+                    <!--
+                        <field name="qty_distinc"/>
+                    -->                    
+                    <field name="amount"/>
+                    <!--
+                        <field name="total"/>
+                    -->
+                    <field name="fsm_order_id"/>
+                </tree>
+            </field>
+        </record>
+        <!-- form view -->
+        <record id="view_package_lump_form" model="ir.ui.view">
+            <field name="name">package_lump_form</field>
+            <field name="model">package.lump</field>
+            <field name="type">form</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form string="Bulto">
+                    <header>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <!--button type="object" name="action_view_detail" class="oe_stat_button" icon="fa-pencil-square-o"-->
+                                <!--field name="detail_count" widget="statinfo" string="Detail(s)"/-->
+                                <!--field name="detail_ids" invisible="1"/-->
+                            <!--/button-->
+                        </div>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only" string="Bultos Name"/>
+                            <h1><field name="name"/></h1>
+                        </div>
+                        <group>
+                            <group>
+                                <!--
+                                    <field name="qty_distinc"/>
+                                -->
+                                <field name="amount"/>
+                                <!--
+                                    <field name="total"/>
+                                -->
+                                <field name="fsm_order_id"/>                               
+                            </group>
+                        </group>                      
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- search -->
+        <record id="view_package_lump_search" model="ir.ui.view">
+            <field name="name">package_lump</field>
+            <field name="model">package.lump</field>
+            <field name="arch" type="xml">
+                <search string="Bultos">
+                    <field name="name" select="True"/>
+                    <field name="amount" select="True"/>
+                    <field name="fsm_order_id" select="True"/>
+                    <group string="Group By..">
+                        <filter string="Pedido de Trabajo" domain="[]" name="group_by_fsm_order_id" context="{'group_by':'fsm_order_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+        <!-- kanban , to show image, please add image_small in the model -->
+        <record id="view_package_lump_kanban" model="ir.ui.view" >
+            <field name="name">package_lump</field>
+            <field name="model">package.lump</field>
+            <field name="arch" type="xml">
+                <kanban version="7.0">
+                    <field name="id" />
+                    <field name="name" />
+                    <field name="amount" />
+                    <field name="fsm_order_id"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click o_kanban_record_has_image_fill">
+                                <div class="oe_kanban_details">
+                                    <h4>
+                                        <a type="open"><field name="name"/></a>
+                                    </h4>
+                                    <ul>
+                                        <li>
+                                            Monto Bulto: <field name="amount"></field>
+                                        </li>
+                                        <li>
+                                            Pedido Trabajo: <field name="fsm_order_id"></field>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+        <!-- calendar if a date field exists -->
+        <!-- graph -->
+        <record id="view_package_lump_graph" model="ir.ui.view">
+            <field name="name">package_lump</field>
+            <field name="model">package.lump</field>
+            <field name="arch" type="xml">
+                <graph string="Bulto" type="bar">
+                    <field name="name" />
+                    <field name="qty_distinc"/>
+                    <field name="amount" />
+                    <field name="total"/>
+                    <field name="fsm_order_id"/>
+                </graph>
+            </field>
+        </record>
+        <!-- action window -->
+        <record id="action_package_lump" model="ir.actions.act_window">
+            <field name="name">Bultos</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">package.lump</field>            
+            <field name="view_mode">kanban,tree,form,graph</field>
+            <field name="context">{"search_default_fieldname":1}</field>
+            <field name="help" type="html">
+                <p class="oe_vi ew_nocontent_create">
+                    Agregar Bultos
+                </p><p>
+                 Agregar bultos
+                </p>
+            </field>
+        </record>
+    
+        <menuitem id="settings_lump_menuitem" name="Butlos y montos" action="action_package_lump" parent="savar_oms_pricelist.sub_settings_menuitem" sequence="100" />        
+
+    </data>
+</odoo>

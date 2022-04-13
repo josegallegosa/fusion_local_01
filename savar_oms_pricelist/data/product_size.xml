@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<!--TALLAS-->
+
+<odoo>
+    <data noupdate="1">
+
+        <record forcecreate="True" id="product_size_1" model="product.size">
+            <field name="name">XS</field>
+        </record>
+        <record forcecreate="True" id="product_size_2" model="product.size">
+            <field name="name">S</field>
+        </record>
+        <record forcecreate="True" id="product_size_3" model="product.size">
+            <field name="name">M</field>
+        </record>
+        <record forcecreate="True" id="product_size_4" model="product.size">
+            <field name="name">L</field>
+        </record>
+        <record forcecreate="True" id="product_size_5" model="product.size">
+            <field name="name">XL</field>
+        </record>
+
+    </data>
+</odoo>

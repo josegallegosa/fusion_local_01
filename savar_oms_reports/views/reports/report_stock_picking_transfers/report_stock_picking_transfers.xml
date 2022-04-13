@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <template id="report_fsm_order_vals_template_html">
+            <t t-call="web.external_layout">
+
+                <link rel="stylesheet" href="/savar_oms_reports/static/src/css/reports.css" type="text/css"/>
+                <t t-set="vals" t-value="o.get_inform_vals(True)"/>
+                <div class="page">
+                    <div style="text-align:center;padding:6px;border-bottom:1px solid #ccc">
+                        <h1><t t-esc="o.name"/></h1>
+                    </div>
+                    <br/>
+                    <br/>
+                    <div class="pos-ticket-body">
+                        <div class="receipt-row">
+                            <table class="full">
+                                <tr>
+                                    <td colspan="2">
+                                        <h3><i class="fa fa-calendar"/>  Fechas</h3>
+                                        <table class="table table-full-w">
+                                            <tr>
+                                                <th>
+                                                    <b>Tipo</b>
+                                                </th>
+                                                <th>
+                                                    <b>Fecha</b>
+                                                </th>
+                                            </tr>
+                                                <t t-if="'start_create_date' in vals">
+                                                    <tr>
+                                                        <td>
+                                                            Fecha Creado Desde
+                                                        </td>
+                                                        <td>
+                                                            <t t-esc="vals['start_create_date']"/>
+                                                        </td>
+                                                    </tr>
+                                                </t>
+                                                <t t-if="'ends_create_date' in vals">
+                                                    <tr>
+                                                        <td>
+                                                            Fecha Creado Hasta
+                                                        </td>
+                                                        <td>
+                                                            <t t-esc="vals['ends_create_date']"/>
+                                                        </td>
+                                                    </tr>
+                                                </t>
+                                                <t t-if="'date_start_scheduled_date_start' in vals">
+                                                    <tr>
+                                                        <td>
+                                                            Fecha Ejecución Desde
+                                                        </td>
+                                                        <td>
+                                                            <t t-esc="vals['date_start_scheduled_date_start']"/>
+                                                        </td>
+                                                    </tr>
+                                                </t>
+                                                <t t-if="'date_ends_scheduled_date_start' in vals">
+                                                    <tr>
+                                                        <td>
+                                                            Fecha Ejecución Hasta
+                                                        </td>
+                                                        <td>
+                                                            <t t-esc="vals['date_ends_scheduled_date_start']"/>
+                                                        </td>
+                                                    </tr>
+                                                </t>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <h3><i class="fa fa-money"/>  Montos Totales de los Servicios</h3>
+                                        <table class="table table-full-w">
+                                            <tr>
+                                                <th>
+                                                    <b>Tipo Monto</b>
+                                                </th>
+                                                <th>
+                                                    <b>Total</b>
+                                                </th>
+                                            </tr>
+                                            <t t-if="'account_ids_service_amount' in vals">
+                                                <tr t-if="vals['account_ids_service_amount']>0">
+                                                    <td>
+                                                        Total por Cuentas
+                                                    </td>
+                                                    <td>
+                                                        <t t-esc="vals['account_ids_service_amount']"/>
+                                                    </td>
+                                                </tr>
+                                            </t>
+                                            <t t-if="'channel_ids_service_amount' in vals">
+                                                <tr t-if="vals['channel_ids_service_amount']>0">
+                                                    <td>
+                                                        Total por Canales
+                                                    </td>
+                                                    <td>
+                                                        <t t-esc="vals['channel_ids_service_amount']"/>
+                                                    </td>
+                                                </tr>
+                                            </t>
+                                            <t t-if="'service_ids_service_amount' in vals">
+                                                <tr t-if="vals['service_ids_service_amount']>0">
+                                                    <td>
+                                                        Total por Servicios
+                                                    </td>
+                                                    <td>
+                                                        <t t-esc="vals['service_ids_service_amount']"/>
+                                                    </td>
+                                                </tr>
+                                            </t>
+                                            <t t-if="'subservice_ids_service_amount' in vals">
+                                                <tr t-if="vals['subservice_ids_service_amount']>0">
+                                                    <td>
+                                                        Total por Subservicios
+                                                    </td>
+                                                    <td>
+                                                        <t t-esc="vals['subservice_ids_service_amount']"/>
+                                                    </td>
+                                                </tr>
+                                            </t>
+                                            <t t-if="'total_service_amount' in vals">
+                                                <tr t-if="vals['total_service_amount']>0">
+                                                    <td>
+                                                        Total
+                                                    </td>
+                                                    <td>
+                                                        <t t-esc="vals['total_service_amount']"/>
+                                                    </td>
+                                                </tr>
+                                            </t>
+
+                                        </table>
+                                    </td>
+                                </tr>  
+                                 <tr t-if="'location_ids' in vals">
+                                    <td colspan="2">
+                                        <h3><i class="fa fa-map"/>  Ubicaciones</h3>
+                                        <table class="table table-full-w">
+                                            <tr>
+                                                <th>
+                                                    Nombre
+                                                </th>
+                                                <th>
+                                                    Correo
+                                                </th>
+                                            </tr>
+                                            <t t-foreach="vals['location_ids']" t-as="location_id">
+                                                <tr>
+                                                    <td>
+                                                        <t t-esc="location_id['name']"/>
+                                                    </td>
+                                                    <td>
+                                                        <t t-if="'email' in location_id">
+                                                            <t t-if="location_id['email']!='False'">
+                                                                <t t-esc="location_id['email']"/>
+                                                            </t>
+                                                        </t>
+                                                    </td>
+                                                </tr>
+                                            </t>
+                                        </table>
+                                    </td>
+                                </tr>                        
+                            </table>
+                            <br/>
+                            <br/>
+                            <t t-if="'fsm_orders' in vals">
+                                <table>
+                                    <tr>
+                                        <td colspan="2">
+                                            <h2>Ordenes de Trabajo</h2>
+                                        </td>
+                                    </tr>
+                                    <tr>                                    
+                                        <td class="td-padding item-align-right"  style="text-align:right;">  
+                                            <t>
+                                                <t>
+                                                        <br></br>
+                                                        <table class="table table-full-w">
+                                                            <tr>
+                                                                <th class="td-table" t-if="o.display_code_merchant==True">Código</th> 
+                                                                <th class="td-table" t-if="o.display_scheduled_date_start==True">Fecha Inicio Despacho</th> 
+                                                                <th class="td-table" t-if="o.display_partner_account==True">Cuenta</th> 
+                                                                <th class="td-table" t-if="o.display_partner_channel==True">Canal</th> 
+                                                                <th class="td-table" t-if="o.display_service==True">Servicio</th> 
+                                                                <th class="td-table" t-if="o.display_subservice==True">Subservicio</th> 
+                                                                <th class="td-table" t-if="o.display_consigned_id==True">Contacto Primario</th>
+                                                                <th class="td-table" t-if="o.display_location_id==True">Ubicación</th>
+                                                            </tr>                                                    
+
+                                                            <t t-foreach="vals['fsm_orders']" t-as="fsm_order">
+                                                                
+                                                                    <tr>
+                                                                        <td t-if="o.display_code_merchant==True" class="td-table">
+                                                                            <t t-esc="fsm_order.code_merchant"/>
+                                                                        </td>
+                                                                        <td t-if="o.display_scheduled_date_start==True" class="td-table">
+                                                                            <t t-esc="fsm_order.date_start"/>
+                                                                        </td>
+                                                                        <td t-if="o.display_partner_account==True" class="td-table">
+                                                                            <t t-esc="fsm_order.partner_account.name"/>
+                                                                        </td>
+                                                                        <td t-if="o.display_partner_channel==True" class="td-table">
+                                                                            <t t-esc="fsm_order.partner_channel.name"/>
+                                                                        </td>
+                                                                        <td t-if="o.display_service==True" class="td-table">
+                                                                            <t t-esc="fsm_order.service_id.name"/>
+                                                                        </td>
+                                                                        <td t-if="o.display_subservice==True" class="td-table">
+                                                                            <t t-esc="fsm_order.subservice_id.name"/>
+                                                                        </td>
+                                                                        <td t-if="o.display_consigned_id==True" class="td-table">
+                                                                            <t t-esc="fsm_order.consigned_id.name"/>
+                                                                        </td>
+                                                                        <td t-if="o.display_location_id==True" class="td-table">
+                                                                            <t t-esc="fsm_order.location_id.name"/>
+                                                                        </td>
+                                                                    </tr>
+                                                                
+                                                            </t>
+                                                    </table>
+                                                </t>
+                                            </t>
+                                        </td> 
+                                    </tr>
+                                </table>
+                            </t>
+                        </div>                       
+                    </div>
+                </div>                    	
+            </t>
+        </template>
+
+        <template id="report_stock_vals_template">
+		    <t t-call="web.html_container">
+                <div class="header">
+                </div>
+		        <t t-foreach="docs" t-as="o">
+		            <t t-call="savar_oms_reports.report_fsm_order_vals_template_html" />
+		        </t>
+                <div class="footer">
+                </div>
+		    </t>
+		</template>
+
+</odoo>

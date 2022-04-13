@@ -1,0 +1,16 @@
+<odoo>
+
+        <template id="portal_merchant_fsm_orders_new" name="Mis Ordenes de Trabajo" inherit_id="portal.portal_my_home" customize_show="True" priority="31">
+
+            <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+
+                <t t-call="portal.portal_docs_entry">
+                  <t t-set="title">Nueva Orden de Trabajo</t>
+                  <t t-set="url" t-value="'/merchant/order_service/new'"/>
+                </t>
+
+            </xpath>
+
+        </template>        
+
+</odoo>

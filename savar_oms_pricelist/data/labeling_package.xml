@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<!--ETIQUETADO PAQUETES-->
+
+<odoo>
+    <data noupdate="1">
+
+        <record forcecreate="True" id="labelingPack_1" model="labeling.package">    
+            <field name="name">1 bulto</field>
+        </record> 
+        <record forcecreate="True" id="labelingPack_2" model="labeling.package">    
+            <field name="name">Bulto</field>
+        </record> 
+        <record forcecreate="True" id="labelingPack_3" model="labeling.package">    
+            <field name="name">No aplica</field>
+        </record> 
+
+    </data>
+</odoo>

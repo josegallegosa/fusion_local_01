@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<odoo>
+    <data>
+
+       <!--ALMACENAJE-->
+        <record id="storage_form_view" model="ir.ui.view">
+            <field name="name">storage.form</field>
+            <field name="model">storage</field>
+            <field name="arch" type="xml">
+                <form class="oe_form_configuration">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="description"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <record id="storage_tree_view" model="ir.ui.view">
+            <field name="name">storage.tree</field>
+            <field name="model">storage</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" />
+                    <field name="description" />
+                </tree>
+            </field>
+        </record>
+        <record id="storage_action" model="ir.actions.act_window">
+            <field name="name">Almacenaje</field>
+            <field name="res_model">storage</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+    </data>
+</odoo>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <report id="report_stock_picking_transfers_pdf" 
+                string="Orden de Trabajo"
+                model="business.reports" 
+                report_type="qweb-pdf" 
+                file="savar_oms_reports.report_stock_vals_template" 
+                name="savar_oms_reports.report_stock_vals_template" 
+                menu="False"
+                />
+
+        <record id="business_report_picking_transfers" model="report.paperformat">
+            <field name="name">Orden de Trabajo</field>
+            <field name="default" eval="True" />
+            <field name="format">custom</field>
+            <field name="page_height">500</field>
+            <field name="page_width">160</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">1</field>
+            <field name="margin_bottom">1</field>
+            <field name="margin_left">1</field>
+            <field name="margin_right">1</field>
+            <field name="header_line" eval="False" />
+            <field name="header_spacing">0</field>
+            <field name="dpi">90</field>
+            <field name="report_ids" eval="[(6, 0, [ref('savar_oms_reports.report_stock_picking_transfers_pdf'),])]"/>
+        </record>
+
+</odoo>

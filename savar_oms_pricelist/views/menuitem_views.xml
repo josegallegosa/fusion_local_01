@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="oms_pricelist_menuitem"
+                name="Tarifas OMS" action="oms_pricelist_action"
+                parent="stock.menu_stock_inventory_control" sequence="1" />
+    <menuitem id="sub_settings_menuitem"
+                name="Configuración" 
+                parent="stock.menu_stock_config_settings" sequence="4" />
+    <menuitem id="settings_fsm_order_service_menuitem"
+                name="Subservicios" action="fsm_order_service_action"
+                parent="sub_settings_menuitem" sequence="1" />
+    <menuitem id="settings_ubigeo_menuitem"
+                name="Ubigeos" action="ubigeo_action"
+                parent="sub_settings_menuitem" sequence="2" />
+    <menuitem id="settings_storage_menuitem"
+                name="Almacenajes" action="storage_action"
+                parent="sub_settings_menuitem" sequence="3" />
+    <menuitem id="settings_labeling_product_menuitem"
+                name="Etiquetados productos" action="labeling_product_action"
+                parent="sub_settings_menuitem" sequence="4" />
+    <menuitem id="settings_labeling_package_menuitem"
+                name="Etiquetados paquetes" action="labeling_package_action"
+                parent="sub_settings_menuitem" sequence="5" />
+    <menuitem id="settings_by_weight_menuitem"
+                name="Tipo de peso" action="by_weight_action"
+                parent="sub_settings_menuitem" sequence="6" />
+    <menuitem id="settings_product_size_menuitem"
+                name="Tipo de talla" action="product_size_action"
+                parent="sub_settings_menuitem" sequence="7" />
+    <menuitem id="settings_by_package_menuitem"
+                name="Tipo de bulto" action="by_package_action"
+                parent="sub_settings_menuitem" sequence="8" />
+    <menuitem id="settings_payment_type_menuitem"
+                name="Tipo de pagos" action="payment_type_action"
+                parent="sub_settings_menuitem" sequence="9" />
+    <menuitem id="settings_picking_menuitem"
+                name="Picking" action="picking_action"
+                parent="sub_settings_menuitem" sequence="10" />
+    <menuitem id="settings_packing_menuitem"
+                name="Packing" action="packing_action"
+                parent="sub_settings_menuitem" sequence="11" />
+    <menuitem id="settings_by_pick_up_menuitem"
+                name="Tipo de recojo" action="by_pick_up_action"
+                parent="sub_settings_menuitem" sequence="12" />
+    <menuitem id="settings_by_sure_menuitem"
+                name="Tipo de seguro" action="by_sure_action"
+                parent="sub_settings_menuitem" sequence="13" />
+    <menuitem id="settings_back_office_menuitem"
+                name="Back Office" action="back_office_action"
+                parent="sub_settings_menuitem" sequence="14" />
+    <menuitem id="settings_prints_menuitem"
+                name="Tipo de impresión" action="prints_action"
+                parent="sub_settings_menuitem" sequence="16" />
+    
+</odoo>
+

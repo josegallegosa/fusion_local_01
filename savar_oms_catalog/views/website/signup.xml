@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <template id="signup_fields_inherit" inherit_id="auth_signup.fields" name="Auth Signup street form field">
+            <xpath expr="//div[last()]" position="after">
+                <div class="form-group field-login">
+                    <label for="merchant_catalog_owner">Merchant</label>
+                    
+                    <label class="switch">
+                        <input type="checkbox" name="merchant_catalog_owner" id="merchant_catalog_owner" class="form-control form-control-sm"/>
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+            </xpath>
+        </template>
+
+    </data>
+</odoo>

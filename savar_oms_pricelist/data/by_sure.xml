@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<!-- POR SEGURO -->
+
+<odoo>
+    <data noupdate="1">
+
+        <record forcecreate="True" id="by_sure_1" model="by.sure">    
+            <field name="name">% del monto del paquete</field>
+        </record>  
+        <record forcecreate="True" id="by_sure_2" model="by.sure">    
+            <field name="name">Cargo fijo</field>
+        </record> 
+        <record forcecreate="True" id="by_sure_3" model="by.sure">    
+            <field name="name">No aplica</field>
+        </record> 
+
+    </data>
+</odoo>

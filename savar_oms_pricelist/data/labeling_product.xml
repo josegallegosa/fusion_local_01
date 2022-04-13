@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<!--ETIQUETADO PRODUCTOS-->
+
+<odoo>
+    <data noupdate="1">
+
+        <record forcecreate="True" id="labelingPro_1" model="labeling.product">    
+            <field name="name">Unidad (hasta 500)</field>
+        </record>   
+        <record forcecreate="True" id="labelingPro_2" model="labeling.product">    
+            <field name="name">Unidad (hasta 1000)</field>
+        </record> 
+        <record forcecreate="True" id="labelingPro_3" model="labeling.product">    
+            <field name="name">No aplica</field>
+        </record> 
+
+    </data>
+</odoo>

@@ -1,0 +1,181 @@
+<odoo>
+
+    <template id="portal_merchant_fsm_orders_new_webpage">
+        <title>Ordenes de Trabajo</title>
+        <t t-call="website.layout">
+            <div class="oe_structure"/>
+                <div class="oe_structure">
+                    <div class="container">
+                        <br></br>
+                        <form id="new_fsm_sale_order">
+                            <div class="row row_top">
+                                <t t-set="sequence" t-value="request.env['ir.sequence'].get_merchant_sequence('fsm.order')"/>
+                                <h1><input type="text" name="order_name" class="form-control input-as-primary-label" readonly="1"  t-att-value="sequence"/></h1>
+                            </div>
+                            <div class="row row_top">
+                                <label>Referencia de la Orden</label>
+                                <input type="text" name="fsm_reference" id="fsm_order_ref" class="form-control fsm_order_ref"/>
+                            </div>
+
+                            <div class="row">
+
+                                <div class="form-layout-widget fsm_order_basic">
+                                    <h3 class="form-layout-widget-title"><i class="fa fa-archive"></i>Comercio</h3>
+                                    <div class="row row_top">
+                                        <label>Cuenta</label>
+                                        <input type="text" name="fsm_account" id="fsm_account" class="form-control fsm_account"/>
+                                    </div>
+                                    <div class="row row_top">
+                                        <label>Canal</label>
+                                        <input type="text" name="fsm_channel" id="fsm_channel" class="form-control fsm_channel"/>
+                                    </div>
+                                </div>
+
+                                <div class="form-layout-widget fsm_order_basic">
+                                    <h3 class="form-layout-widget-title"><i class="fa fa-archive"></i>Servicio</h3>
+                                    <div class="row row_top">
+                                        <label>Servicio</label>
+                                        <input type="text" name="fsm_service" id="fsm_service" class="form-control fsm_service"/>
+                                    </div>
+                                    <div class="row row_top">
+                                        <label>Subservicio</label>
+                                        <input type="text" name="fsm_subservice" id="fsm_subservice" class="form-control fsm_subservice"/>
+                                    </div>
+                                </div>  
+                                                          
+                                <div class="form-layout-widget fsm_order_payment">
+                                    <h3 class="form-layout-widget-title"><i class="fa fa-money"></i> Pago</h3>
+                                    <div class="row row_top">
+                                        <label>Medio Pago</label>
+                                        <input type="text" name="fsm_payment_type_id" id="fsm_payment_type_id" class="form-control fsm_payment_type_id"/>
+                                    </div>
+                                    <div class="row row_top">
+                                        <label>Referencia Consignado</label>
+                                        <input type="text" name="fsm_consigned_id" id="fsm_consigned_id" class="form-control fsm_consigned_id"/>
+                                    </div>
+                                </div>
+
+                                <div class="form-layout-widget fsm_order_shipping">
+                                    <h3 class="form-layout-widget-title"><i class="fa fa-truck"></i> Envío</h3>
+                                    <div class="row row_top">
+                                        <label>Tipo Bulto</label>
+                                        <input type="text" name="fsm_by_package_id" id="fsm_by_package_id" class="form-control fsm_by_package_id"/>
+                                    </div>
+                                    <div class="row row_top">
+                                        <label>Tipo Envío</label>
+                                        <input type="text" name="fsm_shipping_type_id" id="fsm_shipping_type_id" class="form-control fsm_shipping_type_id"/>
+                                    </div>                                    
+                                </div>
+                                
+                                <div class="form-layout-widget fsm_order_location">
+                                    <h3 class="form-layout-widget-title"><i class="fa fa-map"></i> Ubicación</h3>
+                                    <div class="row row_top">
+                                        <label>País</label>
+                                        <input type="text" name="fsm_country_id" id="fsm_country_id" class="form-control fsm_country_id"/>
+                                    </div>
+                                    <div class="row row_top">
+                                        <label>Estado</label>
+                                        <input type="text" name="fsm_state_id" id="fsm_state_id" class="form-control fsm_state_id"/>
+                                    </div>
+                                    <div class="row row_top">
+                                        <label>Provincia</label>
+                                        <input type="text" name="fsm_province_id" id="fsm_province_id" class="form-control fsm_province_id"/>
+                                    </div>
+                                    <div class="row row_top">
+                                        <label>Districto</label>
+                                        <input type="text" name="fsm_district_id" id="fsm_district_id" class="form-control fsm_district_id"/>
+                                    </div>
+                                    <div class="row row_top">
+                                        <label>Código Postal</label>
+                                        <input type="text" name="fsm_zip" id="fsm_zip" class="form-control fsm_zip"/>
+                                    </div>
+                                </div>
+
+                                <div class="form-layout-widget fsm_order_appointment">
+                                    <h3 class="form-layout-widget-title"><i class="fa fa-calendar"></i> Cita</h3>
+                                    <div class="row row_top">
+                                        <label>Inicio</label>
+                                        <t t-set="times" t-value="request.env['fsm.order'].get_appointments_range_time()"/>
+                                        <select id="fsm_start_appointment" name="fsm_start_appointment" class="form-control fsm_start_appointment">                                            
+                                            <t t-foreach="times" t-as="time">
+                                                <option t-att-value="time[0]">
+                                                    <t t-esc="time[1]"></t>
+                                                </option>
+                                            </t>
+                                        </select>
+                                    </div>
+                                    <div class="row row_top">
+                                        <label>Final</label>
+                                        <select id="fsm_ends_appointment" name="fsm_ends_appointment" class="form-control fsm_ends_appointment">
+                                            <t t-foreach="times" t-as="time">
+                                                <option t-att-value="time[0]">
+                                                    <t t-esc="time[1]"></t>
+                                                </option>
+                                            </t>
+                                        </select>
+                                    </div>
+                                </div> 
+                                <!--
+                                    <div class="form-layout-widget fsm_order_shipping">
+                                        <h3 class="form-layout-widget-title"><i class="fa fa-truck"></i> Entrega</h3>
+                                        <div class="row row_top">
+                                            <label>Fecha Despacho</label>
+                                            <input type="date" name="fsm_dispatch" id="fsm_dispatch" class="form-control fsm_dispatch o_website_form_input o_website_form_date" />
+                                        </div>                                   
+                                    </div>
+                                -->
+                                
+                            </div>
+
+                            <div class="row">
+                                <div class="stock_moves row">
+                                    <h3 class="form-layout-widget-title h3_stock_moves"><i class="fa fa-cubes"></i> Movimientos de Inventario</h3>
+                                    <table class="table_stock_moves">
+
+                                        <tr class="table_stock_moves_heading">
+                                            <th><label>Producto</label></th>
+                                            <th><label>Lugar</label></th>
+                                            <th><label>Unidad Medida</label></th>
+                                            <th><label>Cantidad a Mano</label></th>
+                                            <th><label/></th>
+                                        </tr>
+                                        <tr class="stock_move">
+                                            <td><input type="text" name="stock_move_product" class="form-control stock_move_product"/></td>
+                                            <td><input type="text" name="stock_move_location_id" class="form-control stock_move_location_id"/></td>
+                                            <td><input type="text" name="stock_move_uom" class="form-control stock_move_uom"/></td>
+                                            <td><input type="number" min="1" step="1" pattern="[0-9]{10}" name="stock_move_quantity_on_hand" class="form-control stock_move_quantity_on_hand"/></td>
+                                            <td><div class="action_remove_fsm_line"><i class="fa fa-trash"/></div></td>
+                                        </tr>
+                                        
+                                    </table>
+                                </div>
+                            </div>  
+
+                            <div class="default_stock_move">
+                                <table class="default_stock_move_table">
+                                    <tr  class="stock_move">
+                                        <td><input type="text" name="stock_move_product" class="form-control stock_move_product"/></td>
+                                        <td><input type="text" name="stock_move_location_id" class="form-control stock_move_location_id"/></td>
+                                        <td><input type="text" name="stock_move_uom" class="form-control stock_move_uom"/></td>
+                                        <td><input type="number" min="1" step="1" pattern="[0-9]{10}" name="stock_move_quantity_on_hand" class="form-control stock_move_quantity_on_hand"/></td>
+                                        <td><div class="action_remove_fsm_line"><i class="fa fa-trash"/></div></td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div class="row">
+                                <div>
+                                    <a href="#" class="go_back_order btn btn-dark" mode="create" ><i class="fa fa-undo"></i> Atras</a>     
+                                    <a href="#" class="add_form_fsm_line btn btn-secondary"><i class="fa fa-plus-square"></i>Agregar linea</a>                               
+                                    <a href="#" class="save_fsm_order btn btn-primary" mode="create" ><i class="fa fa-save"></i> Guardar Orden</a>
+                                </div>
+                            </div>                      
+                            
+                        </form>
+                    </div>
+                </div>
+            <div class="oe_structure"/>
+        </t>
+    </template>
+
+</odoo>

@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <odoo>   
+        <data>
+
+            <template id="report_fsm_order_savar" >
+                <t t-call="web.basic_layout">
+                    <div class="page" style="margin-top:0px;">
+                        <style>
+                            .titulo1 {
+                                text-align:center;
+                                font-size:16px
+                            }
+                            .titulo2{
+                                text-align:center;
+                                font-size:16px
+                            }
+                            .contenedor1{
+                                width:100%;
+                            }
+                            .contenedor2{
+                                width:100%;
+                            }
+                            .table1 {
+                                width:100%;
+                                margin: 20px 0 0 0;
+                            }
+                            .table2 {
+                                width:100%;
+                                margin: 10px 0 0 0;
+                            }
+                            .table3 {
+                                width:100%;
+                                margin: 10px 0 0 0;
+                            }
+                            .table4 {
+                                width:100%;
+                                margin: 10px 0 0 0;
+                            }
+                            .table1_row_l {
+                                width:40%;
+                                text-align:left;
+                                font-size:14px;
+                            }
+                            .table1_row_r {
+                                width:60%;
+                                text-align:left;   
+                                font-size:14px;
+                            }
+                            .table2_row_l {
+                                width:40%;
+                                text-align:left;
+                                font-size:14px;
+                            }
+                            .table2_row_r {
+                                width:60%;
+                                text-align:left;   
+                                font-size:14px;
+                            }
+                            .table3_row_l {
+                                width:40%;
+                                text-align:left;
+                                font-size:14px;
+                            }
+                            .table3_row_c {
+                                width:30%;
+                                text-align:right;
+                                font-size:14px;
+                            }
+                            .table3_row_r {
+                                width:30%;
+                                text-align:right;   
+                                font-size:14px;
+                            }
+                            .blank_row {
+                                height: 10px !important; /* overwrites any other rules */
+                                background-color: #FFFFFF;
+                            }
+                            .table4_row_1 {
+                                width:40%;
+                                text-align:left;
+                                font-size:14px;   
+                            }
+                            .table4_row_2 {
+                                width:10%;
+                                text-align:left;
+                                font-size:14px;
+                            }
+                            .table4_row_3 {
+                                width:20%;
+                                text-align:right;
+                                font-size:14px;
+                            }
+                            .table4_row_4 {
+                                width:20%;
+                                text-align:right;
+                                font-size:14px;  
+                            }
+                            .table4_row_5 {
+                                width:10%;
+                                text-align:right;
+                                font-size:14px;
+                            }
+                        </style>
+                        <div class="titulo1">COMPENSACIÓN POR TIEMPO DE SERVICIO</div>
+                        <div class="titulo2"><b>T.U.O DECRETO LEGISLATIVO N° 650</b></div>
+                        <div class="contenedor1">
+                            <table class="table1">
+                              <tr>
+                                <td class="table1_row_l">COMPAÑÍA:</td>
+                                <td class="table1_row_r">REPRESENTACIONES MARTIN S.A.C</td>
+                              </tr>
+                              <tr>
+                                <td class="table1_row_l">DOMICILIO:</td>
+                                <td class="table1_row_r">PQ. INDUSTRIAL NRO. K-2 INT. 11 PARCELA II</td>
+                              </tr>
+                              <tr>
+                                <td class="table1_row_l">ENTIDAD BANCARIA</td>
+                                <td class="table1_row_r">BBVA BANCO CONTINENTAL</td>
+                              </tr>
+                              <tr>
+                                <td class="table1_row_l">MONEDA:PEN</td>
+                                <td class="table1_row_r">N° CUENTA: 87482518241245</td>
+                              </tr>
+                            </table>
+                        </div>
+
+                        <div class="contenedor2">
+                            <table class="table2">
+                              <tr style="background-color: #c4c4c3;">
+                                <td class="table2_row_l" style="font-size:15px;"><b>DATOS DEL PERSONAL</b></td>
+                                <td class="table2_row_r"></td>
+                              </tr>
+                              <tr>
+                                <td class="table2_row_l">Apellidos y Nombres:</td>
+                                <td class="table2_row_r">Barrezuela Meza, Armando</td>
+                              </tr>
+                              <tr>
+                                <td class="table2_row_l">Código:</td>
+                                <td class="table2_row_r">48765085</td>
+                              </tr>
+                              <tr>
+                                <td class="table2_row_l">Fecha Ingreso:</td>
+                                <td class="table2_row_r">01/01/2016</td>
+                              </tr>
+                              <tr>
+                                <td class="table2_row_l">Puesto Trabajo:</td>
+                                <td class="table2_row_r">Coordinador de RRHH</td>
+                              </tr>
+                              <tr>
+                                <td class="table2_row_l">Área:</td>
+                                <td class="table2_row_r">TALENTO HUMANO</td>
+                              </tr>
+                              <tr>
+                                <td class="table2_row_l">Sub Área:</td>
+                                <td class="table2_row_r"></td>
+                              </tr>
+                            </table>
+                            <table class="table2">
+                              <tr style="background-color: #c4c4c3;">
+                                <td class="table2_row_l" style="font-size:15px;"><b>PERIODO A DEPOSITAR</b></td>
+                                <td class="table2_row_r"></td>
+                              </tr>
+                              <tr>
+                                <td class="table2_row_l">De 01/11/2015 al 30/04/2016</td>
+                                <td class="table2_row_r"></td>
+                              </tr>
+                            </table>
+                            <table class="table3">
+                              <tr style="background-color: #c4c4c3;">
+                                <td class="table3_row_l" style="font-size:15px;"><b>REMUNERACIÓN COMPUTABLE</b></td>
+                                <td class="table3_row_c"></td>
+                                <td class="table3_row_r"></td>
+                              </tr>
+                              <tr>
+                                <td class="table3_row_l">Sueldo</td>
+                                <td class="table3_row_c"></td>
+                                <td class="table3_row_r">2500.00</td>
+                              </tr>
+                              <tr>
+                                <td class="table3_row_l">1/6 de Gratificación</td>
+                                <td class="table3_row_c"></td>
+                                <td class="table3_row_r">0.00</td>
+                              </tr>
+                              <tr>
+                                <td class="table3_row_l">Asignación Familiar</td>
+                                <td class="table3_row_c"></td>
+                                <td class="table3_row_r">85.00</td>
+                              </tr>
+                              <tr class="blank_row">
+                                <td colspan="3"></td>
+                              </tr>
+                              <tr>
+                                <td class="table3_row_l">Promedio Horas Extras</td>
+                                <td class="table3_row_c"></td>
+                                <td class="table3_row_r">84.92</td>
+                              </tr>
+                              <tr class="blank_row">
+                                <td colspan="3"></td>
+                              </tr>
+                              <tr>
+                                <td class="table3_row_l"></td>
+                                <td class="table3_row_c"><b>Total:</b></td>
+                                <td class="table3_row_r"><b>2669.92</b></td>
+                              </tr>
+                            </table>
+                            <table class="table4">
+                              <tr style="background-color: #c4c4c3;">
+                                <td class="table4_row_1" style="font-size:15px;"><b>CÁLCULO DEL DEPOSITO</b></td>
+                                <td class="table4_row_2"></td>
+                                <td class="table4_row_3"></td>
+                                <td class="table4_row_4"></td>
+                                <td class="table4_row_5"></td>
+                              </tr>
+                              <tr>
+                                <td class="table4_row_1">Tiempo No Computable:</td>
+                                <td class="table4_row_2">60</td>
+                                <td class="table4_row_3"></td>
+                                <td class="table4_row_4"></td>
+                                <td class="table4_row_5"></td>
+                              </tr>
+                              <tr>
+                                <td class="table4_row_1">Tiempo Efectivo a Liquidar:</td>
+                                <td class="table4_row_2">120</td>
+                                <td class="table4_row_3"></td>
+                                <td class="table4_row_4">4 meses y 2 días</td>
+                                <td class="table4_row_5"></td>
+                              </tr>
+                              <tr>
+                                <td class="table4_row_1">R.C./12 x MESES EFECTIVOS</td>
+                                <td class="table4_row_2"></td>
+                                <td class="table4_row_3"></td>
+                                <td class="table4_row_4"></td>
+                                <td class="table4_row_5">889.97</td>
+                              </tr>
+                              <tr>
+                                <td class="table4_row_1">R.C./12 /30 x DIAS EFECTIVOS</td>
+                                <td class="table4_row_2"></td>
+                                <td class="table4_row_3"></td>
+                                <td class="table4_row_4"></td>
+                                <td class="table4_row_5">0.00</td>
+                              </tr>
+                              <tr class="blank_row">
+                                <td colspan="3"></td>
+                              </tr>
+                              <tr>
+                                <td class="table4_row_1"></td>
+                                <td class="table4_row_2"></td>
+                                <td class="table4_row_3"><b>Total a Depositar:</b></td>
+                                <td class="table4_row_4"></td>
+                                <td class="table4_row_5"><b>889.97</b></td>
+                              </tr>
+                              
+                            </table>
+                        </div>
+                        
+                        
+                    </div>
+                </t>
+             </template>
+
+                <template id="report_fsm_order">
+                    <t t-call="web.html_container">
+                        <t t-foreach="docs" t-as="o">
+                            <t t-call="savar_fieldservice.report_fsm_order_savar"/>                    
+                        </t>
+                    </t>
+                </template>
+                  
+                <report
+                    id="fsm_order_savar_file"
+                    model="fsm.order"
+                    string="Orden de Trabajo"
+                    report_type="qweb-pdf"
+                    name="savar_fieldservice.report_fsm_order"
+                    file="savar_fieldservice.report_fsm_order"
+                />
+        </data>
+    </odoo>

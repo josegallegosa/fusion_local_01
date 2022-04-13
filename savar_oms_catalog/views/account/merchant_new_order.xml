@@ -1,0 +1,16 @@
+<odoo>
+
+        <template id="portal_merchant_orders_new" name="Mis Ordenes" inherit_id="portal.portal_my_home" customize_show="True" priority="34">
+
+            <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+
+                <t t-call="portal.portal_docs_entry">
+                  <t t-set="title">Nuevo Pedido</t>
+                  <t t-set="url" t-value="'/merchant/order/new'"/>
+                </t>
+
+            </xpath>
+
+        </template>        
+
+</odoo>

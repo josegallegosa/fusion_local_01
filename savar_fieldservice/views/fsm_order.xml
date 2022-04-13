@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="fsm_order_tree_view_inherit" model="ir.ui.view">
+        <field name="name">fsm.order.tree.inherit</field>
+        <field name="model">fsm.order</field>
+        <field name='inherit_id' ref="fieldservice.fsm_order_tree_view"/>
+        <field name='arch' type='xml'>
+            <field name="name" position="after">
+                <field name="partner_account"/>
+                <field name="partner_channel"/>
+            </field>
+            <field name="scheduled_date_start" position="replace">
+            </field>
+            <field name="company_id" position="after">
+                <field name="scheduled_date_start" string="Inicio Despacho"/>
+                <field name="create_date"/>
+            </field>            
+        </field>
+    </record>
+
+    <record model='ir.ui.view' id='fsm_order_form_inherit'>
+        <field name='name'>fsm.order.form.inherit</field>
+        <field name='model'>fsm.order</field>
+        <field name='inherit_id' ref="fieldservice.fsm_order_form"/>
+        <field name='arch' type='xml'>
+            <field name="stage_id" position="attributes">
+                <attribute name="option">{'fold_field': 'fold', 'clickable':True}</attribute>
+            </field>
+            <field name="location_id">
+                <field name="sub_stage_id"/>
+            </field>            
+            <field name="location_id" position="after">
+                <field name="create_date"/>
+                <field name="partner_account"/>
+                <field name="partner_channel"/>
+            </field>
+            <field name="move_ids" position="after">
+                <button name="action_create_picking" string="Crear Transferencia de Trabajo" type="object" />
+            </field>              
+            <xpath expr="//page[@id='stock']" position="attributes">
+                <attribute name="string">Lineas SKU</attribute>
+                <attribute name="attrs">{'invisible':[('service_id', '=', 2)]}</attribute>
+            </xpath>    
+            <xpath expr="//field[@name='request_early']" position="attributes">
+                <attribute name="string">Fecha Registro de Solicitud</attribute>
+            </xpath>
+            <xpath expr="//field[@name='scheduled_date_start']" position="attributes">
+                <attribute name="string">Fecha Inicio Despacho</attribute>
+            </xpath>
+            <xpath expr="//field[@name='scheduled_date_end']" position="attributes">
+                <attribute name="string">Fecha Fin Despacho</attribute>
+            </xpath> 
+            <xpath expr="//field[@name='stage_id']" position="attributes">
+                <attribute name="domain">[['stage_type', '=', 'order'], ['services', 'in', [service_id]]]</attribute>
+            </xpath>
+            <xpath expr="//button[@name='action_complete']" position="attributes">
+                <attribute name="name">fsm_action_complete</attribute>
+            </xpath>
+            <xpath expr="//button[@name='action_cancel']" position="attributes">
+                <attribute name="name">fsm_action_cancel</attribute>
+            </xpath>
+            <xpath expr="//field[@name='location_id']" position="after">
+                <field name="consigned_id"/>
+                <field name="consigned_dni"/>
+                <field name="consigned_district"/>
+                <field name="consigned_reference"/>
+                <field name="consigned_movil"/>
+                <field name="consigned_mail"/>
+            </xpath>            
+        </field>
+    </record>
+
+    <record id="view_fsm_order_search_inherit" model="ir.ui.view">
+        <field name="name">fsm_order_search_inherit</field>
+        <field name="model">fsm.order</field>
+        <field name="inherit_id" ref="fieldservice.fsm_order_search_view" />
+        <field name="arch" type="xml">
+            <filter name="todo" position="before">
+                <filter string="Cuenta" name="partner_account" domain="[['partner_account','!=',None]]"/>
+                <filter string="Canal" name="partner_channel" domain="[['partner_channel','!=',None]]"/>
+                <separator/>
+            </filter>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="oms_catalog_fsm_order_tree" model="ir.ui.view">
+        <field name="name">fsm.order.inherit.view.form</field>
+        <field name="model">fsm.order</field>
+        <field name="inherit_id" ref="fieldservice.fsm_order_tree_view"/>
+        <field name="arch" type="xml">
+            <field name="stage_id" position="before">
+                <field name="sale_order"/>
+            </field>   
+            <field name="company_id" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field>  
+            <field name="person_id" position="replace">
+                <field name="service_id"/>
+                <field name="consigned_id"/>
+            </field>
+        </field>
+    </record>
+    <record id="oms_catalog_fsm_order_form" model="ir.ui.view">
+        <field name="name">fsm.order.inherit.view.form</field>
+        <field name="model">fsm.order</field>
+        <field name="inherit_id" ref="fieldservice.fsm_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook/page[last()]" position="after">
+                <page string="Ventas" name="sale_order_page">                    
+                    <group>
+                        <field name="sale_order"/>
+                    </group>
+                </page>
+                <page string="Bultos" name="package_lump" attrs="{'invisible': [('service_id', '=', 3)]}">
+                    <group>
+                        <field name="package_lump_ids"/>
+                        <field name="package_lump_amount"/>
+                    </group>
+                </page>                
+            </xpath>            
+        </field>
+    </record>
+
+    <record id="oms_catalog_fsm_order_form_stock" model="ir.ui.view">
+        <field name="name">fsm.order.inherit.view.form</field>
+        <field name="model">fsm.order</field>
+        <field name="inherit_id" ref="fieldservice_stock.view_fsm_order_form_inherit_stock"/>
+        <field name="arch" type="xml">
+            
+            <xpath expr="//field[@name='move_ids']" position="replace">
+                    <field name="move_ids" position="replace">
+                        <tree decoration-muted="state == 'cancel'" default_order="date, picking_id, sequence" string="Moves" editable="bottom">
+                            <field name="name" optional="show"/>
+                            <field name="reference" optional="hide"/>
+                            <field name="location_id" optional="hide"/>
+                            <field name="location_dest_id" optional="hide"/>
+                            <field name="date" widget="date" optional="hide" />
+                            <field name="picking_id" string="Reference" optional="hide"/>
+                            <field name="sequence" invisible="1" optional="show"/>
+                            <field name="origin"/>
+                            <field name="product_id"/>
+                            <field name="product_uom_qty" string="Cantidad"/>
+                            <field name="package_lump" string="Bulto"/>
+                            <field name="reserved_availability" string="Allocated Quantity" optional="hide"/>
+                            <field name="quantity_done" string="Done Quantity" optional="hide"/>
+                            <field name="product_uom_category_id" invisible="1"/>
+                            <field name="product_uom" attrs="{'readonly': [('state', '!=', 'draft'), ('id', '!=', False)]}" options="{'no_open': True, 'no_create': True}" string="Unit of Measure" groups="uom.group_uom"/>
+                            <field name="company_id" invisible="1"/>
+                            <field name="location_id" invisible="1"/>
+                            <field name="location_dest_id" invisible="1"/>
+                            <field name="create_date" invisible="1"/>
+                            <field name="state"/>
+                        </tree>
+                    </field>
+                </xpath>
+                <field name="move_ids" position="attributes">
+                    <attribute name="domain">
+                    [['fsm_order_id','=',id],['fsm_order_id','!=',None]]
+                    </attribute>                       
+                </field>
+                <xpath expr="//field[@name='move_ids']" position="attributes">
+                    <attribute name="attrs">{'invisible':[('service_id', '=', 2)]}</attribute>
+                </xpath>
+        </field>
+    </record>
+
+    <record id="action_fsm_order_xls" model="ir.actions.server">
+        <field name="name">XLS</field>
+        <field name="model_id" ref="fieldservice.model_fsm_order" />
+        <field name="state">code</field>
+    </record>
+    
+</odoo>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- # BEGIN JEG -->
+
+<!-- TIPO DE ORDEN -->
+
+<odoo>
+    <data noupdate="1">
+
+        <record forcecreate="True" id="type_order_1" model="type.order">    
+            <field name="name">Pedido OMS</field>
+        </record> 
+        <record forcecreate="True" id="type_order_2" model="type.order">    
+            <field name="name">Pedido Logística</field>
+        </record> 
+    </data>
+</odoo>
+<!-- # ENDS JEG -->

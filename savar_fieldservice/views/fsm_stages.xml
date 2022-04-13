@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data noupdate="0">
+
+		<record id="view_stages_inherit" model="ir.ui.view">
+			<field name="name">fsm.stages</field>
+			<field name="model">fsm.stage</field>
+			<field name="inherit_id" ref="fieldservice.fsm_stage_form_view"/>
+			<field name="arch" type="xml">
+				<field name="description" position="after">
+				<notebook>
+					<page string="Servicios">
+						<group>
+							<field name="services">
+								<tree default_order='name'>
+									<field name="name"/>
+								</tree>
+							</field>
+						</group>
+					</page>
+				</notebook>					
+				</field>
+			</field>
+		</record>
+
+    </data>
+</odoo>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<!-- ALMACENAJE -->
+
+<odoo>
+    <data noupdate="1">
+
+        <record forcecreate="True" id="storage_1" model="storage">    
+            <field name="name">Por ítem</field>
+        </record>
+        <record forcecreate="True" id="storage_2" model="storage">    
+            <field name="name">Por caja</field>
+        </record>    
+        <record forcecreate="True" id="storage_3" model="storage">    
+            <field name="name">Por pallet</field>
+        </record>    
+        <record forcecreate="True" id="storage_4" model="storage">    
+            <field name="name">No aplica</field>
+        </record>    
+
+    </data>
+</odoo>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- fsm stage -->
+
+<odoo>
+    <data noupdate="1">
+
+        <record id="fsm_stage_04" model="fsm.stage">
+            <field name="name">Por Atender</field>
+            <field name="sequence">50</field>
+            <field name="stage_type">order</field>
+            <field name="fold">0</field>
+            <field name="is_default">1</field>
+            <field name="custom_color">#1C2833</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="services" eval="[(4, ref('savar_oms_pricelist.service_3'))]"/>
+        </record>
+
+        <record id="fsm_stage_05" model="fsm.stage">
+            <field name="name">Por Proceso</field>
+            <field name="sequence">51</field>
+            <field name="stage_type">order</field>
+            <field name="fold">0</field>
+            <field name="is_default">1</field>
+            <field name="custom_color">#1C2833</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="services" eval="[(4, ref('savar_oms_pricelist.service_3'))]"/>
+        </record>
+
+        <record id="fsm_stage_06" model="fsm.stage">
+            <field name="name">Packing FulFillment</field>
+            <field name="sequence">52</field>
+            <field name="stage_type">order</field>
+            <field name="fold">0</field>
+            <field name="is_default">1</field>
+            <field name="custom_color">#1C2833</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="services" eval="[(4, ref('savar_oms_pricelist.service_3'))]"/>
+        </record>
+
+        <record id="fsm_stage_07" model="fsm.stage">
+            <field name="name">Recojo</field>
+            <field name="sequence">53</field>
+            <field name="stage_type">order</field>
+            <field name="fold">0</field>
+            <field name="is_default">1</field>
+            <field name="custom_color">#1C2833</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="services" eval="[(4, ref('savar_oms_pricelist.service_2'))]"/>
+        </record>
+
+        <record id="fsm_stage_08" model="fsm.stage">
+            <field name="name">En Almacen Distribución</field>
+            <field name="sequence">54</field>
+            <field name="stage_type">order</field>
+            <field name="fold">0</field>
+            <field name="is_default">1</field>
+            <field name="custom_color">#1C2833</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="services" eval="[(4, ref('savar_oms_pricelist.service_2')),(4, ref('savar_oms_pricelist.service_3'))]"/>
+        </record>
+
+        <record id="fsm_stage_09" model="fsm.stage">
+            <field name="name">En Ruta</field>
+            <field name="sequence">55</field>
+            <field name="stage_type">order</field>
+            <field name="fold">0</field>
+            <field name="is_default">1</field>
+            <field name="custom_color">#1C2833</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="services" eval="[(4, ref('savar_oms_pricelist.service_2')),(4, ref('savar_oms_pricelist.service_3'))]"/>
+        </record>
+
+        <record id="fsm_stage_10" model="fsm.stage">
+            <field name="name">Entregado/Fallido</field>
+            <field name="sequence">56</field>
+            <field name="stage_type">order</field>
+            <field name="fold">0</field>
+            <field name="is_default">1</field>
+            <field name="custom_color">#1C2833</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="services" eval="[(4, ref('savar_oms_pricelist.service_2')),(4, ref('savar_oms_pricelist.service_3'))]"/>
+        </record>
+
+        <record id="fsm_stage_11" model="fsm.stage">
+            <field name="name">Liquidación</field>
+            <field name="sequence">57</field>
+            <field name="stage_type">order</field>
+            <field name="fold">0</field>
+            <field name="is_default">1</field>
+            <field name="custom_color">#1C2833</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="services" eval="[(4, ref('savar_oms_pricelist.service_2')),(4, ref('savar_oms_pricelist.service_3'))]"/>
+        </record>
+
+        <record id="fsm_stage_12" model="fsm.stage">
+            <field name="name">Programado</field>
+            <field name="sequence">58</field>
+            <field name="stage_type">order</field>
+            <field name="fold">0</field>
+            <field name="is_default">1</field>
+            <field name="custom_color">#1C2833</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="services" eval="[(4, ref('savar_oms_pricelist.service_2')),(4, ref('savar_oms_pricelist.service_3'))]"/>
+        </record>        
+
+    </data>
+</odoo>

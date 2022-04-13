@@ -1,0 +1,16 @@
+<odoo>
+
+    <template id="portal_merchant_portal_my_quotations" name="Pedidos Mercantiles Contenedor" inherit_id="sale.portal_my_quotations" customize_show="True">
+        <xpath expr="//." position="inside">
+            <t t-call="savar_oms_catalog.portal_merchant_portal_orders_buttons"> 
+                <t t-call="savar_oms_catalog.portal_merchant_portal_orders_buttons"></t>        
+            </t>
+        </xpath>
+        <xpath expr="//p[1]" position="before">
+            <t t-if="not quotations">
+                <t t-call="savar_oms_catalog.portal_merchant_portal_orders_buttons"></t>
+            </t>            
+        </xpath>  
+    </template>
+
+</odoo>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<!-- SERVICIOS -->
+
+<odoo>
+    <data noupdate="1">
+
+        <record forcecreate="True" id="service_1" model="fsm.order.service">
+            <field name="name">General</field>
+        </record>
+        <record forcecreate="True" id="service_2" model="fsm.order.service">
+            <field name="name">Last Mile</field>
+        </record>
+        <record forcecreate="True" id="service_3" model="fsm.order.service">
+            <field name="name">FulFillment</field>
+        </record>
+        <record forcecreate="True" id="service_4" model="fsm.order.service">
+            <field name="name">Consolidado</field>
+        </record>
+
+    </data>
+</odoo>

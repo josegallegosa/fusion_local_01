@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <template id="product_template_taxes" inherit_id="website_sale.product_price">
+        <xpath expr="//div[last()]" position="after">
+            <!--<div>
+                <strong class="attribute_name">Impuestos</strong>
+                <t t-foreach="product.taxes_id" t-as="ptax">
+                    <div class="badge badge-pill  o_tag_color_0 tax_label" t-attr="{'id':ptax.id}">                
+                        <span class="o_badge_text">
+                            <span role="img" aria-label="Tag color: No color">
+                            </span>
+                            <t t-esc="ptax.name"/>
+                        </span>                            
+                    </div>
+                </t>
+            </div>  
+            
+            <div class="product_template_taxes_edition">
+              <t t-set="sale_taxes" t-value="request.env['account.tax'].search([('type_tax_use','=','sale')])" />
+                <select id="product_template_taxes_input" multiple="multiple">
+                    <t t-foreach="sale_taxes" t-as="tax">
+                        <option value="tax.id"><t t-esc="tax.name"/></option>
+                    </t>
+                </select>
+            </div>
+            -->
+            <div class="product_template_taxes_edition_nice">    
+                <strong class="attribute_name">Impuestos</strong>            
+                <input type="text" class="form-control input-as-label" name="taxes_id" id="taxes_id" readonly="1"/>
+            </div>
+            
+        </xpath>
+
+    </template>
+</odoo>

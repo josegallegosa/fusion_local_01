@@ -1,0 +1,8 @@
+<odoo>
+  <data>
+    <record id="dashboard_business_report_001" model="business.reports">
+      <field name="name">Orden de Trabajo</field>
+      <field name="report_type">report_stock_picking_transfers</field>
+    </record>
+  </data>
+</odoo>

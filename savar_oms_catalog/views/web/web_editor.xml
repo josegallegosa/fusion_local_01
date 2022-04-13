@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="website_publisher" name="Website Publisher">
+        <!--groups="savar_oms_catalog.group_merchant_account"--> 
+        <t t-if="'website_published' in main_object.fields_get() and ('can_publish' not in main_object.fields_get() or main_object.can_publish)">
+            <li t-attf-class="js_publish_management #{extra_classes} #{main_object.website_published and 'css_published' or 'css_unpublished'}" t-att-data-description="env['ir.model']._get(main_object._name).display_name" t-att-data-id="main_object.id" t-att-data-object="main_object._name" t-att-data-controller="publish_controller">
+                <label class="o_switch o_switch_danger js_publish_btn m-0" t-att-accesskey="desktop_navbar and 'p'">
+                    <input type="checkbox" t-att-checked="main_object.website_published"/>
+                    <span/>
+                    <span class="css_publish">Unpublished</span>
+                    <span class="css_unpublish">Published</span>
+                </label>
+            </li>
+        </t>
+    </template>
+    <template id="user_navbar_inherit" inherit_id="website.user_navbar" name="User Navbar">
+        <xpath expr="//nav" position="after">
+            <!--groups="savar_oms_catalog.group_merchant_account"--> 
+            <nav t-if="website" id="oe_main_menu_navbar" class="o_main_navbar merchant_navigation_nav">
+                <ul class="o_menu_systray d-none d-md-block" >
+                   
+                    <t t-call="savar_oms_catalog.website_publisher">
+                        <t t-set="extra_classes" t-value=""/>
+                        <t t-set="desktop_navbar" t-value="true"/>
+                    </t>
+                    
+                    <!-- Mobile preview -->
+                    <!--
+                    <li class="o_mobile_preview" id="mobile-menu">
+                        <a data-action="show-mobile-preview" href="#" accesskey="v"><span title="Mobile preview" role="img" aria-label="Mobile preview" class="fa fa-mobile"/></a>
+                    </li>
+                    -->
+                    <li t-if="multi_website_websites" id="website_switcher">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" accesskey="w">
+                            <i class="fa fa-globe d-lg-none"/>
+                            <span class="d-none d-lg-inline-block">
+                                <t t-esc="multi_website_websites_current['name']"/>
+                            </span>
+                        </a>
+                        <div class="dropdown-menu" role="menu">
+                            <div class="d-lg-none dropdown-item active">
+                                <span t-esc="multi_website_websites_current['name']"/>
+                            </div>
+                            <t t-foreach="multi_website_websites" t-as="multi_website_website">
+                                <a role="menuitem" href="#" t-att-domain="multi_website_website['domain']" class="dropdown-item oe_menu_text js_multi_website_switch" t-att-website-id="str(multi_website_website['website_id'])">
+                                    <span t-esc="multi_website_website['name']"/>
+                                </a>
+                            </t>
+                        </div>
+                    </li>
+
+                    <!-- Page Edition -->
+                    <li class="o_new_content_menu" id="new-content-menu">
+                        <a href="#" accesskey="c"><span class="fa fa-plus mr-2"/>New</a>
+                        <div id="o_new_content_menu_choices" class="o_hidden">
+                            <div class="container pt32 pb32">
+                                <div class="row">
+                                    <t>
+                                        <t t-set="mod" t-value="env.ref('base.module_website_sale')"/>
+                                        <div name="module_website_sale" t-att-data-module-id="mod.id" t-att-data-module-shortdesc="mod.shortdesc" class="col-md-4 mb8 o_new_content_element">
+                                            <a href="#" data-action="new_product">
+                                                <i class="fa fa-shopping-cart"/>
+                                                <p>Product</p>
+                                            </a>
+                                        </div>
+                                    </t>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li t-if="not translatable" id="edit-page-menu">
+                        <a data-action="edit" href="#" accesskey="a"><span class="fa fa-pencil mr-2"/>Edit</a>
+                    </li>
+                    <li t-if="not translatable" id="save-page-menu">
+                        <a data-action="save" href="#" accesskey="a"><span class="fa fa-save mr-2"/>Save</a>
+                    </li>
+                </ul>
+            </nav>
+        </xpath>
+    </template>
+</odoo>
